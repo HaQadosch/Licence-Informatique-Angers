@@ -5,27 +5,27 @@
 #include <array>
 
 struct elem{
-	int val;
-	elem * prec;
-	elem * suiv;
+	int val; // valeur de l'element
+	elem * prec; // pointeur sur l'element qui le precede
+	elem * suiv; // pointeur sur l'element qui suit 
 };
 
 struct liste{
-	elem * tete;
-	elem * queue;
+	elem * tete; // point sur le debut de la liste
+	elem * queue; // pointeur sur la fin de la liste
 };
-
+/* génére et retourne une liste vide */
 liste creer_liste(){
 	liste l;
 	l.tete=NULL;
 	l.queue=NULL;
 	return l;
 }
-
+/* retourne vrai si la liste est vide, et faux si ne l'est pas */
 bool test_liste_vide(liste l){
 	return (l.tete==NULL);
 }
-
+/* A COMPLETER */ // ajoute le nombre pris en parametre à la liste 
 void inser_elem_tete_liste(liste &l,int val){
 	elem * e= new elem;
 	e->val=val;	
@@ -36,7 +36,7 @@ void inser_elem_tete_liste(liste &l,int val){
 	} else l.tete->prec=e;
 	l.tete=e;
 }
-
+/* affiche la liste , methode iterative*/
 void aff_liste_it(liste l){
 	if(test_liste_vide(l)){
 		std::cout<<" ";	
