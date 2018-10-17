@@ -44,17 +44,18 @@ SELECT PERSONNELS.nom,prnm,sx,datnais,SERVICES.nom
 FROM PERSONNELS JOIN SERVICES ON PERSONNELS.cdsrv=SERVICES.cdsrv
 WHERE qualif='CHEF DE SERVICE';
 
---6)
-select s.nom as nomserv,p.nom ,p.prnm,p.sx
-from (SELECT *from PERSONNELS where(qualif='CHEF DE SERVICE')) p right outer join SERVICES s
-on p.cdsrv=s.cdsrv;
+--6
+SELECT s.nom as nomserv,p.nom ,p.prnm,p.sx FROM 
+(SELECT * FROM PERSONNELS WHERE (qualif='CHEF DE SERVICE')) p RIGHT OUTER JOIN SERVICES s
+ON p.cdsrv=s.cdsrv;
 
---7)
-select s.nom as nomserv,
+--7
+SELECT s.nom as nomserv,
 coalesce(p.nom,'****') as nom,
 coalesce(p.prnm,'****') as prnm,
 coalesce(p.sx,'****') as sx
-from (SELECT *from PERSONNELS where(qualif='CHEF DE SERVICE')) p right outer join SERVICES s
+FROM 
+(SELECT * FROM PERSONNELS WHERE (qualif='CHEF DE SERVICE')) p RIGHT OUTER JOIN SERVICES s
 on p.cdsrv=s.cdsrv;
 
 --8
