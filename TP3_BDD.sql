@@ -1,0 +1,88 @@
+------------ EXERCICE 1-------------
+------------ EXERCICE 2-------------
+
+--1
+SELECT nom FROM PERSONNELS
+WHERE qualif='INFIRMIERE'
+
+INTERSECT
+
+SELECT nom FROM PERSONNELS
+WHERE qualif='SECRETAIRE MEDICALE';
+
+--2
+SELECT nom,prnm FROM PERSONNELS
+
+INTERSECT 
+
+SELECT nom, prnm FROM PATIENTS;
+
+--3
+SELECT nom,prnm FROM PERSONNELS
+WHERE qualif='SECRETAIRE MEDICALE'
+
+EXCEPT
+
+SELECT nom,prnm FROM PATIENTS;
+
+--4
+SELECT cdprs,nom,prnm,qualif FROM PERSONNELS
+WHERE qualif='ASSISTANT' 
+OR qualif='CHEF DE CLINIQUE'
+OR cdprs IN 
+(SELECT cdspr FROM PERSONNELS
+WHERE qualif='ASSISTANT' 
+OR qualif='CHEF DE CLINIQUE');
+
+--4bis
+SELECT cdprs,nom,prnm,qualif FROM PERSONNELS
+WHERE qualif='ASSISTANT' 
+OR qualif='CHEF DE CLINIQUE'
+OR cdprs IN 
+(SELECT cdspr FROM PERSONNELS
+WHERE qualif='ASSISTANT' 
+OR qualif='CHEF DE CLINIQUE');
+
+--5
+SELECT PERSONNELS.nom,prnm,sx,datnais,SERVICES.nom 
+FROM PERSONNELS JOIN SERVICES ON PERSONNELS.cdsrv=SERVICES.cdsrv
+WHERE qualif='CHEF DE SERVICE';
+
+--6
+SELECT S.nom,
+CASE 
+ WHEN P.nom IS NULL THEN 'NULL'
+ ELSE P.nom 
+END
+,CASE
+ WHEN prnm IS NULL THEN 'NULL' 
+ ELSE prnm 
+END
+,CASE
+ WHEN sx IS NULL THEN 'NULL' 
+ ELSE sx 
+END
+FROM PERSONNELS P JOIN SERVICES S ON P.cdsrv=S.cdsrv
+WHERE qualif='CHEF DE SERVICE';
+
+--7
+SELECT S.nom,
+CASE 
+ WHEN P.nom IS NULL THEN '****'
+ ELSE P.nom 
+END
+,CASE
+ WHEN prnm IS NULL THEN '****' 
+ ELSE prnm 
+END
+,CASE
+ WHEN sx IS NULL THEN '****' 
+ ELSE sx 
+END
+FROM PERSONNELS P JOIN SERVICES S ON P.cdsrv=S.cdsrv
+WHERE qualif='CHEF DE SERVICE';
+
+--8
+
+
+------------ EXERCICE 3-------------
