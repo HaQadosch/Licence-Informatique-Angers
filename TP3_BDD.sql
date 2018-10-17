@@ -52,6 +52,10 @@ FROM
 on p.cdsrv=s.cdsrv;
 
 --8
-
+select s.cdsrv,s.nom
+from SERVICES s
+where not exists(select *
+from PERSONNELS P
+where p.cdsrv=s.cdsrv);
 
 ------------ EXERCICE 3-------------
