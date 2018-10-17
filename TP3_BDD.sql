@@ -25,17 +25,10 @@ EXCEPT
 
 SELECT nom,prnm FROM PATIENTS;
 
---4
-SELECT cdprs,nom,prnm,qualif FROM PERSONNELS
-WHERE qualif='ASSISTANT' 
-OR qualif='CHEF DE CLINIQUE'
-OR cdprs IN 
-(SELECT cdspr FROM PERSONNELS
-WHERE qualif='ASSISTANT' 
-OR qualif='CHEF DE CLINIQUE');
 
---4bis
-SELECT e.cdprs,e.nom,e.prnm,e.qualif,s.cdprs,s.nom,s.prnm,s.qualif  FROM PERSONNELS e JOIN PERSONNELS s on e.cdspr=s.cdprs
+--4
+SELECT e.cdprs,e.nom,e.prnm,e.qualif,s.cdprs,s.nom,s.prnm,s.qualif 
+FROM PERSONNELS e JOIN PERSONNELS s on e.cdspr=s.cdprs
 WHERE e.qualif='ASSISTANT' 
 OR e.qualif='CHEF DE CLINIQUE';
 
