@@ -98,3 +98,6 @@ WHERE NOT exists
 (SELECT *FROM  PERSONNELS P WHERE p.cdsrv=s.cdsrv);
 
 ------------ EXERCICE 3-------------
+                                 
+SELECT SUM(c.Qte) FROM COMMANDE c JOIN CLIENT cl ON c.NumC=cl.NumC
+WHERE cl.nomc='Jean';
