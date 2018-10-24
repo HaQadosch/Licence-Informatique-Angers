@@ -12,31 +12,25 @@ WHERE cl.nomc = 'Jean'
 ORDER BY nomp DESC, nomf ASC;
 
 --3
-SELECT nomp 
-FROM  PRODUIT
-WHERE prix = ( SELECT MIN(prix) FROM PRODUIT);
+SELECT nomp FROM  PRODUIT
+WHERE prix = (SELECT MIN(prix) FROM PRODUIT);
 
 --4
-SELECT nomp, AVG(prix) moy
-FROM  PRODUIT
+SELECT nomp, AVG(prix) moy FROM  PRODUIT
 GROUP BY nomp;
 
 --5
-SELECT nomp, AVG(prix) moy
-FROM PRODUIT
+SELECT nomp, AVG(prix) moy FROM PRODUIT
 GROUP BY nomp
 HAVING AVG(prix) > 1000;
 
 --6
-SELECT nomp, AVG(prix) moy
-FROM  PRODUIT
+SELECT nomp, AVG(prix) moy FROM  PRODUIT
 GROUP BY nomp
-HAVING AVG(prix) > (SELECT AVG(prix)
-FROM PRODUIT;
+HAVING AVG(prix) > (SELECT AVG(prix) FROM PRODUIT);
                     
 --7
-SELECT nomp, AVG(prix) moy
-FROM  PRODUIT
+SELECT nomp, AVG(prix) moy FROM  PRODUIT
 GROUP BY nomp
 HAVING COUNT (prix) > 2;
                     
