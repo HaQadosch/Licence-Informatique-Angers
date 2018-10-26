@@ -3,30 +3,37 @@
 #include <array>
 
 const int TMAX=200;
-char pile [TMAX]; 
-int sommet;
+using tab=std::array<char,TMAX>;
 
-void initpile(){
-	sommet=-1;
+struct pile{
+	tab pile; 
+	int sommet;
+};
+
+void initpile(pile &p){
+	p.sommet=-1;
 }
 
-void empiler(char c){
-	if(sommet<TMAX-1){
-		sommet++;
-		pile[sommet]=c;	
+void empiler(pile &p,char c){
+	if(p.sommet<TMAX-1){
+		p.sommet++;
+		p.pile[p.sommet]=c;	
 	}
 }
 
-void depiler(char *c){
-	if(sommet>=0){
-		*c=pile[sommet];
-		sommet--;	
+char depiler(pile &p){
+	char c;
+	if(p.sommet>=0){
+		c=p.pile[p.sommet];
+		p.sommet--;
+		return c;	
 	}
 }
 
-int pilevide(){
-	return(sommet==-1);
+int pilevide(pile &p){
+	return(p.sommet==-1);
 }
+
 
 
 int main(){
