@@ -43,3 +43,16 @@ INSERT INTO SPOT values
 ('P12','Mobile','60','BA75'),
 ('P13','Premier emploi','75','BA75'),
 ('P14','Séjour étranger','45','BA75');
+
+DROP TABLE TARIF;
+CREATE TABLE TARIF(
+  Média VARCHAR(7) NOT NULL,
+  Moment VARCHAR(7) NOT NULL,
+  prix int,
+  PRIMARY KEY(Média,Moment),
+  CHECK(
+    Média='TF1' OR Média='FRANCE2' OR Média='FRANCE3' OR Média='CANAL+' OR Média='FRANCE5' OR Média='M6' OR Média='ARTE' OR
+    Moment='JOUR' OR Moment='DEBSOIR' OR Moment='SOIR' OR Moment='FINS'
+  )  
+);
+
