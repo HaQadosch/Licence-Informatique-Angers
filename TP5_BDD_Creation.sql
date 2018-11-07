@@ -1,4 +1,4 @@
-DROP TABLE SOCIETE;
+DROP TABLE PROGRAMMATION,TARIF,SPOT,CAMPAGNE,SOCIETE;
 CREATE TABLE SOCIETE (
   CodeSoc INT,
   PRIMARY KEY(CodeSoc),
@@ -11,7 +11,7 @@ INSERT INTO SOCIETE values
 ('102','CIC','5 rue du brigand Paris 15'),
 ('120','Peugeot','36 avenue de la routourne Angers');
 
-DROP TABLE CAMPAGNE;
+
 CREATE TABLE CAMPAGNE(
   CodeCamp VARCHAR(5) NOT NULL,
   PRIMARY KEY(CodeCamp),
@@ -28,7 +28,7 @@ INSERT INTO CAMPAGNE values
 ('P208P','208-Pinocchio','120','Voiture','TOUS'),
 ('BA75','Le monde bouge','102','Banque','MM50');
   
-DROP TABLE SPOT;
+
 CREATE TABLE SPOT(
   CodeSpot VARCHAR(3),
   Libellé VARCHAR(25),
@@ -44,7 +44,7 @@ INSERT INTO SPOT values
 ('P13','Premier emploi','75','BA75'),
 ('P14','Séjour étranger','45','BA75');
 
-DROP TABLE TARIF;
+
 CREATE TABLE TARIF(
   Média VARCHAR(7) NOT NULL,
   Moment VARCHAR(7) NOT NULL,
@@ -56,3 +56,15 @@ CREATE TABLE TARIF(
   )  
 );
 
+INSERT INTO TARIF VALUES
+('TF1','SOIR','500'),
+('TF1','DEBSOIR','400'),
+('FRANCE2','JOUR','50'),
+('FRANCE3','JOUR','50'),
+('FRANCE3','DEBSOIR','200');
+
+CREATE TABLE PROGRAMMATION(
+  CodeSpot VARCHAR(3),
+
+
+)
