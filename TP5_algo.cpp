@@ -51,5 +51,5 @@ int main(){
   ajout_arete(M,4,7);
   ajout_arete(M,5,8);
   ajout_arete(M,8,9);
-  return 1;+
+  return 1;
 }
