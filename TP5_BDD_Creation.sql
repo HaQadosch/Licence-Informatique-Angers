@@ -1,9 +1,10 @@
+-- Q1 et Q2
 DROP TABLE PROGRAMMATION,TARIF,SPOT,CAMPAGNE,SOCIETE;
 CREATE TABLE SOCIETE (
   CodeSoc INT,
   PRIMARY KEY(CodeSoc),
   Nom VARCHAR(15) NOT NULL,
-  Adresse VARCHAR(50) NOT NULL
+  Adresse VARCHAR(50)
 );
 
 INSERT INTO SOCIETE values
@@ -50,7 +51,7 @@ CREATE TABLE TARIF(
   Moment VARCHAR(7) NOT NULL,
   prix int,
   PRIMARY KEY(Média,Moment),
-  CHECK(
+  constraint chk_tarif CHECK(
     Média='TF1' OR Média='FRANCE2' OR Média='FRANCE3' OR Média='CANAL+' OR Média='FRANCE5' OR Média='M6' OR Média='ARTE' OR
     Moment='JOUR' OR Moment='DEBSOIR' OR Moment='SOIR' OR Moment='FINS'
   )  
@@ -80,3 +81,23 @@ INSERT INTO PROGRAMMATION VALUES
 ('P12','TF1','DEBSOIR','19/02/17'),
 ('P13','TF1','DEBSOIR','20/02/17'),
 ('P13','FRANCE3','DEBSOIR','20/02/17');
+
+-- Q3
+
+ALTER TABLE TARIF
+DROP CONSTRAINT chk_tarif;
+ALTER TABLE TARIF
+ADD CONSTRAINT chk_tarif CHECK(
+  Média='TF1' OR Média='FRANCE2' OR Média='FRANCE3' OR Média='CANAL+' OR Média='FRANCE5' OR Média='M6' OR Média='ARTE' OR Média='W9' OR Média='NT1' OR
+  Moment='JOUR' OR Moment='DEBSOIR' OR Moment='SOIR' OR Moment='FINS'
+  );
+  INSERT INTO TARIF VALUES
+('W9','FINS','50'),
+('NT1','FINS','80');
+
+--Q4
+UPDATE SPOT
+SET Libelle='rencontre en soirée' WHERE CodeSpot='NS2';
+
+--Q5
+
