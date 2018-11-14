@@ -69,7 +69,7 @@ CREATE TABLE PROGRAMMATION(
   Moment VARCHAR(7) NOT NULL,
   datep DATE,
   PRIMARY KEY(CodeSpot,Média,Moment,Datep),
-  FOREIGN KEY(Média,Moment) REFERENCES TARIF(Media,Moment),
+  FOREIGN KEY(Média,Moment) REFERENCES TARIF(Média,Moment),
   FOREIGN KEY(CodeSpot) REFERENCES SPOT(CodeSpot)
 );
 
