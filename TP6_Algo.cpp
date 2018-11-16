@@ -19,10 +19,12 @@ void initialise_roulette(roulette &rou){
 	rou.debut=mai1;
 }
 
+void ajout_numero(
+
 int main(){
 	
 	roulette rou;
 	initialise_roulette(rou);
-	std::cout<<rou.debut->value<<' '<<rou.taille;
+	std::cout<<rou.debut->value<<" "<<rou.taille;
 	return 0;
 }
