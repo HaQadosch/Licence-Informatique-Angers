@@ -1,76 +1,57 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
+#include <array>
 
-struct maillon{
-   int value;
-   maillon * suivant;
+struct elem{
+	int val;
+	elem * prec;
+	elem * suiv;
 };
 
-struct roulette{
-  int taille;
-  maillon * debut; 
+struct liste{
+	elem * tete;
+	elem * queue;
 };
 
-void initialise_roulette(roulette &rou){
-	maillon * mai1=new maillon;
-	(*mai1).value=0;
-	(*mai1).suivant=NULL;
-	rou.taille=1;
-	rou.debut=mai1;
+liste creer_liste(){
+	liste l;
+	l.tete=NULL;
+	l.queue=NULL;
+	return l;
 }
 
-void ajout_numero(roulette &rou, int num){
-	maillon * mai=new maillon;
-	(*mai).value=num;
-	(*mai).suivant=rou.debut;
-	for(int i=1;i<rou.taille;i++){
-		(*mai).suivant=(*mai).suivant->suivant;	
+bool test_liste_vide(liste l){
+	return (l.tete==NULL);
+}
+
+void inser_elem_tete_liste(liste &l,int val){
+	elem * e= new elem;
+	e->val=val;	
+	e->suiv=l.tete;
+	e->prec=NULL;
+	if(test_liste_vide(l)){
+		l.queue=e;	
+	} else l.tete->prec=e;
+	l.tete=e;
+}
+
+void aff_liste_it(liste l){
+	if(test_liste_vide(l)){
+		std::cout<<" ";	
 	}
-
-	/*while((*mai).suivant->suivant!=NULL){
-		(*mai).suivant=(*mai).suivant->suivant;
-		std::cout<<"valeur dans boucle :"<<(*mai).suivant->value;
+	else{
+		for(elem * cur=l.tete; cur->suiv!=NULL; cur=cur->suiv){
+			std::cout<<" "<<cur->val<<",";	
+		}
 	}
-	*/
-	(*mai).suivant->suivant=mai;
-	(*mai).suivant=rou.debut;
-	
-	rou.taille++;
-
 }
 
-roulette creer_roulette(int taille){
-	roulette rou;
-	initialise_roulette(rou);
-	for(int i=1;i<taille;i++){
-		ajout_numero(rou,i);	
-	}
-	return rou;
-}
-
-void tourner_roulette(roulette &rou){
-	rou.debut=rou.debut->suivant;
-}
-
-
-// creation d'une fonction d'affichage, pour tester l'exo
-void affiche_roulette( roulette rou){
-	maillon * cur=new maillon;
-	(*cur).value=0;
-	(*cur).suivant=rou.debut;
-	for(int i=0;i<rou.taille;i++){
-		std::cout<<(*cur).suivant->value<<" | ";
-		(*cur).suivant=(*cur).suivant->suivant;
-	}
-	std::cout<<std::endl;
-
-}
 
 int main(){
-	
-	roulette rou=creer_roulette(5);
-	affiche_roulette(rou);
-	tourner_roulette(rou);
-	affiche_roulette(rou);
+	liste l=creer_liste();
+	inser_elem_tete_liste(l,42);
+	std::cout<<+
+	aff_liste_it(l);
 	return 0;
 }
