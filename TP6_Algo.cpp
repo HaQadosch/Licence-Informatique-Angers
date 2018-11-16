@@ -45,49 +45,61 @@ void ajout_numero(roulette &rou, int num){
 
 }
 
+// créé une roulette de taille taille
 roulette creer_roulette(int taille){
+	// creation de la roulette
 	roulette rou;
 	initialise_roulette(rou);
-	for(int i=1;i<taille;i++){
-		ajout_numero(rou,i);	
+	// remplissage de la roulette:
+	for(int i=1;i<taille;i++){ // parcours de la roulette
+		ajout_numero(rou,i); // à chaque emplacement on ajout un element 
 	}
 	return rou;
 }
 
+// tourne la roulette d'un cran
 void tourner_roulette(roulette &rou){
+	// le pointeur de début devient l'élément suivant celui du début
 	rou.debut=rou.debut->suivant;
 }
 
+// fait tourner la roulette d'un nombre aléatoire de crans
 void lancer_roulette(roulette &rou){
 	//initialisation du random
 	srand(time(NULL));
-	// choix d'un nombre aléatoire, de 1 à la taille du tableau 
+	// choix d'un nombre aléatoire, variant de 1 à la taille du tableau 
 	int nb_tour=rand()%rou.taille +1;
 	
+	// pour chaque tour ...
 	for( int i=0; i<nb_tour ;i++){
-		rou.debut=rou.debut->suivant;	
+		tourner_roulette(rou); // ... on fait tourner la roulette d'un cran	
 	}
 }
 
 // creation d'une fonction d'affichage, pour tester l'exo
 void affiche_roulette( roulette rou){
+	// creation d'un maillon de parcours
 	maillon * cur=new maillon;
 	(*cur).value=0;
-	(*cur).suivant=rou.debut;
+	(*cur).suivant=rou.debut;// on fait pointer ce maillon sur le début
+	
+	// on parcours la roulette avec le maillon
 	for(int i=0;i<rou.taille;i++){
-		std::cout<<(*cur).suivant->value<<" | ";
-		(*cur).suivant=(*cur).suivant->suivant;
+		std::cout<<(*cur).suivant->value<<" | "; // on affiche la valeur du maillon sur lequel il pointe
+		(*cur).suivant=(*cur).suivant->suivant; // il pointe sur le maillon suivant
 	}
-	std::cout<<std::endl;
+	std::cout<<std::endl; // saute de ligne pour confort d'affichage
 
 }
 
 int main(){
-	
+	// test creation de roulette
 	roulette rou=creer_roulette(5);
 	affiche_roulette(rou);
+	// test tourner la roulette d'un cran
 	tourner_roulette(rou);
 	affiche_roulette(rou);
+	// test tourner la roulette d'un nombre aléatoire de crans
 	lancer_roulette(rou);
 	affiche_roulette(rou);
 	return 0;
