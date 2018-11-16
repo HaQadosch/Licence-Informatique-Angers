@@ -13,7 +13,7 @@ struct roulette{
 
 void initialise_roulette(roulette &rou){
 	maillon * mai1=new maillon;
-	(*mai1).value=2;
+	(*mai1).value=0;
 	(*mai1).suivant=NULL;
 	rou.taille=1;
 	rou.debut=mai1;
@@ -33,10 +33,23 @@ void ajout_numero(roulette &rou, int num){
 	}
 	*/
 	(*mai).suivant->suivant=mai;
-	(*mai).suivant=NULL;
+	(*mai).suivant=rou.debut;
 	
 	rou.taille++;
 
+}
+
+roulette creer_roulette(int taille){
+	roulette rou;
+	initialise_roulette(rou);
+	for(int i=1;i<taille;i++){
+		ajout_numero(rou,i);	
+	}
+	return rou;
+}
+
+void tourner_roulette(roulette &rou){
+	rou.debut=rou.debut->suivant;
 }
 
 
@@ -46,18 +59,18 @@ void affiche_roulette( roulette rou){
 	(*cur).value=0;
 	(*cur).suivant=rou.debut;
 	for(int i=0;i<rou.taille;i++){
-		std::cout<<(*cur).suivant->value;
+		std::cout<<(*cur).suivant->value<<" | ";
 		(*cur).suivant=(*cur).suivant->suivant;
 	}
+	std::cout<<std::endl;
 
 }
+
 int main(){
 	
-	roulette rou;
-	initialise_roulette(rou);
-	ajout_numero(rou,3);
-	ajout_numero(rou,4);
-	ajout_numero(rou,5);
+	roulette rou=creer_roulette(5);
+	affiche_roulette(rou);
+	tourner_roulette(rou);
 	affiche_roulette(rou);
 	return 0;
 }
