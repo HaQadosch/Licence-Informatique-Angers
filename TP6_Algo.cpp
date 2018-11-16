@@ -12,6 +12,8 @@ struct roulette{
   maillon * debut; // pointeur vers le premier maillon
 };
 
+///////////////////////////////////////////////////////// EXO 1 ///////////////////////////////////////////////
+
 //initialise la roulette avec un maillon 0
 void initialise_roulette(roulette &rou){
 	// creation d'un maillon de valeur 0
@@ -82,7 +84,7 @@ void affiche_roulette( roulette rou){
 	maillon * cur=new maillon;
 	(*cur).value=0;
 	(*cur).suivant=rou.debut;// on fait pointer ce maillon sur le début
-	
+	std::cout<<" | "; // affichage de la premiere barre, précédant le premier chiffre
 	// on parcours la roulette avec le maillon
 	for(int i=0;i<rou.taille;i++){
 		std::cout<<(*cur).suivant->value<<" | "; // on affiche la valeur du maillon sur lequel il pointe
@@ -91,16 +93,33 @@ void affiche_roulette( roulette rou){
 	std::cout<<std::endl; // saute de ligne pour confort d'affichage
 
 }
+///////////////////////////////////////////////////////// EXO 2 ///////////////////////////////////////////////
+
 
 int main(){
-	// test creation de roulette
-	roulette rou=creer_roulette(5);
-	affiche_roulette(rou);
-	// test tourner la roulette d'un cran
-	tourner_roulette(rou);
-	affiche_roulette(rou);
-	// test tourner la roulette d'un nombre aléatoire de crans
-	lancer_roulette(rou);
-	affiche_roulette(rou);
+	int exo_teste;
+	std::cout<<" entre le numero de l'exercice testé :";
+	std::cin>>exo_teste;
+	if(exo_teste==1){
+
+		// test creation de roulette
+		roulette rou=creer_roulette(5);
+		std::cout<<"creation d'une roulette de 5 éléments"<<std::endl; 
+		affiche_roulette(rou);
+		// test tourner la roulette d'un cran
+		tourner_roulette(rou);
+		std::cout<<"On tourne la roulette d'un cran "<<std::endl;
+		affiche_roulette(rou);
+		// test tourner la roulette d'un nombre aléatoire de crans
+		lancer_roulette(rou);
+		std::cout<<"On tourne la roulette d'un nombre de crans aléatoire "<<std::endl;
+		affiche_roulette(rou);
+
+	}
+	if(exo_teste==2){
+	
+
+	
+	}
 	return 0;
 }
