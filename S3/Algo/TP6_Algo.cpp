@@ -1,15 +1,26 @@
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
+#include <array>
 
 struct maillon{
    int value; // valeur stockée dans le maillon
-   maillon * suivant; // maillon suivant 
+   maillon * suivant; // maillon suivant
 };
 
 struct roulette{
   int taille; // nombre de maillons composant la roulette
   maillon * debut; // pointeur vers le premier maillon
+};
+
+const int NBSUIV=3; // nombre de noeuds pouvant suivre chaque noeud
+struct noeud;// definition de la structure pour en faire un tableau
+using tabnoeud=std::array<noeud,NBSUIV>; // creation du type de tableau stockant les sorties
+struct noeud{
+  tabnoeud * suiv; // ajout du tableau de pointeurs vers des noeuds dans la structure du noeud
+  char etiquette; // "nom" du noeud
+  int gain; // argent gagné dans le noeud
+  roulette rou; // roulette associée au noeud
 };
 
 ///////////////////////////////////////////////////////// EXO 1 ///////////////////////////////////////////////
@@ -41,7 +52,7 @@ void ajout_numero(roulette &rou, int num){
 
 	// on le fait pointer sur le dernier élément de la liste
 	for(int i=1;i<rou.taille;i++){
-		(*mai).suivant=(*mai).suivant->suivant;	
+		(*mai).suivant=(*mai).suivant->suivant;
 	}
 
 	// le maillon suivant le dernier est le nouveau maillon
@@ -64,7 +75,7 @@ roulette creer_roulette(int taille){
 
 	// remplissage de la roulette:
 	for(int i=1;i<taille;i++){ // parcours de la roulette
-		ajout_numero(rou,i); // à chaque emplacement on ajout un element 
+		ajout_numero(rou,i); // à chaque emplacement on ajout un element
 	}
 
 	return rou;
@@ -83,12 +94,12 @@ void lancer_roulette(roulette &rou){
 	//initialisation du random
 	srand(time(NULL));
 
-	// choix d'un nombre aléatoire, variant de 1 à la taille du tableau 
+	// choix d'un nombre aléatoire, variant de 1 à la taille du tableau
 	int nb_tour=rand()%rou.taille +1;
-	
+
 	// pour chaque tour ...
 	for( int i=0; i<nb_tour ;i++){
-		tourner_roulette(rou); // ... on fait tourner la roulette d'un cran	
+		tourner_roulette(rou); // ... on fait tourner la roulette d'un cran
 	}
 
 }
@@ -126,7 +137,7 @@ int main(){
 
 		// test creation de roulette
 		roulette rou=creer_roulette(5);
-		std::cout<<"creation d'une roulette de 5 éléments"<<std::endl; 
+		std::cout<<"creation d'une roulette de 5 éléments"<<std::endl;
 		affiche_roulette(rou);
 
 		// test tourner la roulette d'un cran
@@ -143,9 +154,9 @@ int main(){
 
 	//execution du deuxieme exercice
 	if(exo_teste==2){
-	
 
-	
+
+
 	}
 	return 0;
 }
