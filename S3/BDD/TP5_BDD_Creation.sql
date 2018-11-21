@@ -97,7 +97,18 @@ ADD CONSTRAINT chk_tarif CHECK(
 
 --Q4
 UPDATE SPOT
-SET Libelle='rencontre en soirée' WHERE CodeSpot='NS2';
+SET Libellé='rencontre en soirée' WHERE CodeSpot='NS2';
 
 --Q5
+INSERT INTO SOCIETE VALUES ('100','Adidas',NULL);
 
+--Q6&Q7
+INSERT INTO SPOT VALUES ('NS3','A la maison',NULL,'NE025');
+INSERT INTO PROGRAMMATION VALUES ('NS3','TF1','SOIR','18/02/17');
+
+--Q8
+CREATE TABLE SPOT2 AS(
+ SELECT CodeSpot,Libellé,Durée FROM SPOT
+);
+
+--Q9
