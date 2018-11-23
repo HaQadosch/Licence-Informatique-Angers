@@ -15,12 +15,18 @@ struct roulette{
 
 const int NBSUIV=3; // nombre de noeuds pouvant suivre chaque noeud
 struct noeud;// definition de la structure pour en faire un tableau
-using tabnoeud=std::array<noeud,NBSUIV>; // creation du type de tableau stockant les sorties
+using tabnoeud=std::array<noeud *,NBSUIV>; // creation du type de tableau stockant les sorties
 struct noeud{
-  tabnoeud * suiv; // ajout du tableau de pointeurs vers des noeuds dans la structure du noeud
+  tabnoeud suiv; // ajout du tableau de pointeurs vers des noeuds dans la structure du noeud
   char etiquette; // "nom" du noeud
   int gain; // argent gagné dans le noeud
   roulette rou; // roulette associée au noeud
+};
+
+const int T_GRAPHE=14; // nombre de noeuds du graphe
+struct graphe{
+	int taille=T_GRAPHE;
+	std::array<noeud *,T_GRAPHE> noeuds_g;
 };
 
 ///////////////////////////////////////////////////////// EXO 1 ///////////////////////////////////////////////
@@ -126,6 +132,39 @@ void affiche_roulette( roulette rou){
 
 ///////////////////////////////////////////////////////// EXO 2 ///////////////////////////////////////////////
 
+
+// creer un noeud à partir des paramètres fournis
+noeud creer_noeud(char etiq,roulette rou, noeud &s1, noeud &s2, noeud &s3){
+	noeud n;
+	
+	// remplissage du tableau des pointeurs vers les noeuds suivants
+	n.suiv={&s1,&s2,&s3};
+	
+	n.rou=rou;
+	n.etiquette=etiq;
+	n.gain=rand()%100; // generation d'un gain aleatoire
+
+	return n;
+}
+
+// créer un graphe à partir des paramètres fournis
+graphe creer_graphe(){
+	graphe g= new graphe;
+	for(int i=g.taille;i>0;i--){
+		if(i>T_GRAPHE/* REFAIRE LA CONDITION */){ // Cas des feuilles
+			g.noeuds_g[i]=creer_noeud("A"+ T_GRAPHE,creer_roulette(5),NULL,NULL,NULL); 
+		}else if(T_GRAPHE-i>){ // Cas des noeuds internes
+			g.noeuds_g[i]=creer_noeud("A"+ T_GRAPHE,creer_roulette(5),NULL,NULL,NULL);
+			
+		
+		}
+		
+	}
+	
+	return g;
+}
+
+
 int main(){
 	// demande de quel exercice doit être executé
 	int exo_teste;
@@ -154,7 +193,6 @@ int main(){
 
 	//execution du deuxieme exercice
 	if(exo_teste==2){
-
 
 
 	}
