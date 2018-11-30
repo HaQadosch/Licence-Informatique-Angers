@@ -3,11 +3,6 @@
 #include <time.h>
 #include <array>
 
-#include <iostream>
-#include <cstdlib>
-#include <time.h>
-#include <array>
-
 //DEFINITION DES STRUCTURES
 
 struct noeud;
@@ -49,11 +44,45 @@ void AjoutFeuille(ABR &abr, int i){
 //affiche l'arbre pris en paramètre
 void affiche_abr(ABR arbre){
 	// parcours infixe, donc affichage aprés parcours gauche et avant parcours droit
-	if(arbre->abG!=NULL) affiche_abr(arbre->abG);
-	std::cout<<"|"<<arbre->val;
-	if(arbre->abD!=NULL) affiche_abr(arbre->abD);
+	if(arbre!=NULL){
+		if(arbre->abG!=NULL) affiche_abr(arbre->abG);
+		std::cout<<"|"<<arbre->val;
+		if(arbre->abD!=NULL) affiche_abr(arbre->abD);
+	}
 }
 
+ABR cherche_int(ABR &abr, int i){
+
+	if(i==abr->val){
+		return abr;
+	}
+	// cherche à droite si la valeur est supérieur à l'arbre actuel
+	if(i> abr->val){
+		if(abr->abD!=NULL) cherche_int(abr->abD,i);
+	}
+	// cherche à gauche si la valeur est inférieur à l'arbre actuel
+	if(i<abr->val){
+		if(abr->abG!=NULL) cherche_int(abr->abG,i);
+	}
+	// cas d'erreur et cas NULL
+	else std::cout<<" ERREUR dans l'ajout feuille";
+	return NULL;
+} 
+
+ABR max(ABR abr){
+	if(abr->abD!=NULL) return max(abr->abD);
+	return abr;
+}
+
+void supp_int(ABR &abr, int supp){
+	ABR arbre=cherche_int(abr,supp);
+	if(arbre==NULL);
+	else{
+			
+
+	
+	}
+}
 
 int main(){
 	// creation de l'arbre
