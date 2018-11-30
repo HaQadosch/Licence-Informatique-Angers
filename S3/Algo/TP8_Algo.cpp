@@ -79,8 +79,8 @@ void supp_int(ABR &abr, int supp){
 	if(arbre==NULL);
 	else{
 			
-
-	
+			
+			
 	}
 }
 
