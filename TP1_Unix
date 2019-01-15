@@ -17,8 +17,8 @@
 1.13 cp fichier1 ./TP1/fichier1_copie
 1.14 mv ~/.fichier2 ./TP1
 1.15 mv TP1/.fichier2 TP1/fichier2
-1.16 cp ../LINUX ../UNIX
-1.17
+1.16 mkdir ../UNIX
+1.17 cp ../LINUX ../UNIX
 1.18
 1.19
 1.20
@@ -26,8 +26,8 @@
 1.22
 1.23
 1.24
-1.25
-1.26
+1.25 who
+1.26 man grep
 1.27
 1.28
 1.29
@@ -36,3 +36,5 @@
 1.32
 2.1 dmesg | tail -20
 2.2 dmesg | grep -inc linux
+2.3
+2.4
