@@ -6,3 +6,4 @@
 	fwrite($fic,$date."\n");
 	fclose($fic);
 ?>
+//EXO2
