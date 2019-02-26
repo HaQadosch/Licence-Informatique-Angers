@@ -1,0 +1,16 @@
+Exercice 1
+1) ssh bbrinon@Janus.info.univ-angers.fr
+2) df ~
+3) scp fic1 bbrinon@Janus.info.univ-angers.fr:~
+4) scp -r tamer bbrinon@Janus.info.univ-angers.fr:~
+5) ssh -x bbrinon@Janus.info.univ-angers.fr:~ puis xterm
+6) ssh-keygen -t rsa
+7) #jesuisunthugjepassealexercice2
+8)
+9)
+
+Exercice 2
+did it
+
+Exercice 3
+3.1.2 on utilise v1 et $v1
