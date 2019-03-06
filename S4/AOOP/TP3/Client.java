@@ -1,4 +1,5 @@
 // client.java
+package program;
 
 public class Client {
 	private int numeroClient;
