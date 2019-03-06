@@ -1,4 +1,5 @@
 // annuaire.java
+package program;
 import java.util.ArrayList;
 
 public class Annuaire {
