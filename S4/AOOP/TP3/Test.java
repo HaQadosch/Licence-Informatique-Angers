@@ -1,4 +1,8 @@
 // Test.java
+package test;
+import util.*;
+import program.*;
+
 public class Test {
 
 	public static void main(String[] args) {
