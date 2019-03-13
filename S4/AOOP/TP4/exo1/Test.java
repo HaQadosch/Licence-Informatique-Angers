@@ -17,6 +17,6 @@ public class Test {
 			zoo[i].manger();
 		}
 		
-		private ArrayList<Volant> listeVolants = new ArrayList<Volant>();
+		ArrayList<Volant> listeVolants = new ArrayList<Volant>();
 	}
 }
