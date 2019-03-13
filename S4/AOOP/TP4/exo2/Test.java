@@ -31,7 +31,7 @@ public class Test {
 		tritri.listePoints.add(p5);
 		tritri.listePoints.add(p6);
 		tritri.listePoints.add(p7);
-		System.out.println(tritri+);
+		System.out.println(tritri);
 
 		//test translation Point
 		Point p8=new Point(1.0,1.0);

@@ -11,9 +11,9 @@ public class Polygone extends FormeGeometrique{
   double perimetre(){
       double perim=0;
       for(int i=0;i<listePoints.size();i++){
-        if(i<listePoints.size()-1){
-			     perim=perim+listePoints.get(i).distance(listePoints.get(i+1));
-         }  else perim=perim+listePoints.get(i).distance(listePoints.get(0));
+        if(i<listePoints.size()){
+			     perim=perim+listePoints.get(i).distance(listePoints.get((i+1))%listePoints.size());
+         }  // else perim=perim+listePoints.get(i).distance(listePoints.get(0));
        }
        return perim;
   }
