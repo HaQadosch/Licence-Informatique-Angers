@@ -1,6 +1,14 @@
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.util.Date;
 
 public class Calculatrice extends Exception{
+  private double nb1=0;
+  private double nb2=0;
+  private String oper="";
+  private double result=0;
 
   public double saisieNombre(){
     System.out.println("saisissez un nombre");
@@ -43,15 +51,33 @@ public class Calculatrice extends Exception{
 
   public double lancementCalcul(){
 
-      double x=this.saisieNombre();
-      String oper=saisieOperation();
-      double y=this.saisieNombre();
-      switch(oper){
-        case "+":  return(x+y);
-        case "-":  return(x-y);
-        case "*":  return(x*y);
-        case "/":  return(x/y);
-        default: return(-1);
+      this.nb1=this.saisieNombre();
+      this.oper=saisieOperation();
+      this.nb2=this.saisieNombre();
+      switch(this.oper){
+        case "+":  this.result=(nb1+nb2);break;
+        case "-":  this.result=(nb1-nb2);break;
+        case "*":  this.result=(nb1*nb2);break;
+        case "/":  this.result=(nb1/nb2);break;
+        default: this.result=(-1);break;
       }
+      try{
+        this.sauvegarder();
+      } catch(IOException e){
+        System.out.println("erreur lors de l'enregistrement de l'operation");
+      }
+      return this.result;
   }
+
+  public void sauvegarder() throws IOException {
+    try{
+      FileWriter w = new FileWriter("log.txt",true);
+      DateFormat fullDateFormat = DateFormat.getDateTimeInstance(DateFormat.FULL,DateFormat.FULL);
+      w.write("||" + nb1 + oper + nb2 + "=" + result + " ||--> le " + fullDateFormat.format(new Date()) + "\n");
+      w.close();
+    } catch(IOException e){
+      throw e;
+    }
+  }
+
 }

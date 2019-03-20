@@ -1,0 +1,8 @@
+||2.0+8.0=10.0 ||--> le mercredi 20 mars 2019 14 h 18 CET
+||8.0/2.0=4.0 ||--> le mercredi 20 mars 2019 14 h 18 CET
+||2.0+-8.0=-6.0 ||--> le mercredi 20 mars 2019 14 h 18 CET
+||8.0*-2.0=-16.0 ||--> le mercredi 20 mars 2019 14 h 18 CET
+||10.0/-5.0=-2.0 ||--> le mercredi 20 mars 2019 14 h 18 CET
+||1.0/4.0=0.25 ||--> le mercredi 20 mars 2019 14 h 19 CET
+||6.0*0.0=0.0 ||--> le mercredi 20 mars 2019 14 h 19 CET
+||4.0/0.0=Infinity ||--> le mercredi 20 mars 2019 14 h 19 CET
