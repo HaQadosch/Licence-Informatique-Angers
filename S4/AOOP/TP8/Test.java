@@ -11,12 +11,13 @@ public class Test{
     name.setText("What is your name?");
     window.add(name);
     //ajout du champ texte
-    window.add(new TextField(30));
+    TextField ans=new TextField(30);
+    window.add(ans);
     //ajout du bouton
     JButton ok=new JButton("ok");
     ok.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evenement) {
-        System.out.println(name.getText());
+        System.out.println(ans.getText());
       }
     });
     window.add(ok);
