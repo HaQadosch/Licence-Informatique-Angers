@@ -15,7 +15,8 @@ public class CaseMorpion{
     bouton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evenement) {
         if(partie.player==1)bouton.setText("X");
-        else bouton.setText("O");
+        else if(partie.player==2) bouton.setText("O");
+        else System.out.println("erreur dans l'accés au joueur ayant joué\n");
         partie.jouer(x,y);
         bouton.setEnabled(false);
       }

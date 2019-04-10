@@ -31,8 +31,7 @@ public class Morpion{
     window.add(case22.bouton);
 
     window.setVisible(true);
-    while(mor.fin!=1);
-    case22.bouton.setEnabled(false);
+    
     /*while(mor.fin!=1){
       mor.jouer();
       System.out.println(mor);
