@@ -1,0 +1,99 @@
+Exercice 1 
+<?php
+$string=" uNe ChAiNe qUeLcOnQuE ";
+$string=strtolower($string);
+$string=ucwords($string);
+?>
+
+Exercice 2
+<?php
+$string="PHP MySQL";
+$taille=strlen($string);
+for($i=0;$i<$taille;$i++){
+	echo $string[i],"<br />";
+}
+?>
+
+Exercice 3
+<!DOCTYPE html>
+<body><?php
+$noms=["Nathanael","Marianne","Nicolas","Guillaume","Terence","Amelie","Camille"]
+$taille=20;
+$nbNoms=7;
+
+echo"<tt>";
+for($i=0;$i<$noms;$i++){
+	if($i%2) echo"<br />";
+	for($j=0;$j<$taille;$j++){
+		if($noms[i][j]!=null) echo $noms[i][j];	
+		else echo"_";
+	}
+}
+echo"</tt>";
+?></body>
+
+Exercice 4
+<?php
+$string='<form action=\"script.php">';
+$string=htmlentities($string);
+?>
+
+Exercice 5
+<?php
+$string1="j'aime les raviolis";
+$string2="mais les gilets jaunes ont bloqués mon gaz";
+//début de la manipulation
+$string1=strtolower($string1);
+$string2=strtolower($string2);
+if($string1<$string2) echo $string1 ," est avant ",
+$string2;
+else echo $string2 ," est avant ", $string1;
+?>
+
+Exercice 6
+<?php
+$textes=["ceci est zut un texte zut avec beaucoups de zut ","ceci un texte avec un seul zut", "et lui un texte sans "];
+for($i=0;$i<sizeof($textes);$i++){
+	if(preg_match("zut",$textes[i]);
+	else (affiche_tab($textes[i]));
+}
+?>
+
+Exercice 7
+<?php
+function est_valide(string $adresse) : bool{
+    $modele="/^(www)\.([a-z0-9]+)(\.|-)?([a-z0-9]*)\.([a-z]{2,4}$)/";
+    $ch1=strtolower($ch);
+    if (preg_match($modele, $ch1))
+    {
+        echo "$ch est valide <br />";
+        return TRUE;
+    }
+    else
+    {
+        echo "$ch est invalide <br />";
+        return FALSE;
+    }
+}
+?>
+
+Exercice 8
+<?php
+$modele="/^[0-9]?([0-9]?)$/";
+$age="84";
+if (preg_match($modele, $age))
+{
+    echo "$age est un age valide <br />";
+    return TRUE;
+}
+else
+{
+    echo "$age est un age invalide <br />";
+    return FALSE;
+}
+
+Exercice 9
+<?php
+$ch="PHP  \n est meilleur \n que ASP \n et JSP \n réunis";
+echo "<p>",nl2br($ch),"</p>";
+?>

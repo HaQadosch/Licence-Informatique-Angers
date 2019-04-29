@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Confirmation d'adresse email</title>
+<style>
+.green {background-color:green;}
+.red {background-color:red;}
+</style>
+</head>
+<body>
+	<p>
+		<label>E-Mail : </label> <input id="email-1"
+			placeholder="Entrez votre e-mail" type="text">
+	</p>
+	<p>
+		<label>Confirmez : </label> <input id="email-2"
+			placeholder="Confirmez votre e-mail" type="text">
+	</p>
+	<script>
+		function compareEmails() {
+			var email_1 = document.getElementById('email-1'), email_2 = document.getElementById('email-2');
+			var value_1 = email_1.value, value_2 = email_2.value;
+			if (value_1 && value_2) {
+				email_1.className = email_2.className = (value_1 === value_2) ? "green" : "red";
+			}
+		}
+
+		var email_1 = document.getElementById('email-1'), email_2 = document.getElementById('email-2');
+		if (email_1 && email_2) {
+			email_1.addEventListener("keyup", compareEmails, false);
+			email_2.addEventListener("keyup", compareEmails, false);
+			email_1.addEventListener("blur", compareEmails, false);
+			email_2.addEventListener("blur", compareEmails, false);
+		}
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+Exercice1
+$mavar,$var5,$_mavar,$_5var,$__élément1
+
+Exercice 2
+$x="PHP 5"
+$y=$x="PHP 5"
+$z=$x="PHP 5"
+
+Exercice 3
+$GLOBALS["x"];
+$GLOBALS["y"];
+$GLOBALS["z"];
+
+Exercice 4
+<?php print_r(get_defined_constants()); 
+	echo PHP_VERSION,PHP_OS,$_SERVER["HTTP_ACCEPT_LANGUAGE"]
+?>
+
+Exercice 5
+$x="PHP7";
+$a[0]=$x="PHP7";
+$y=" 7e version de PHP"
+
+$z=70
+
+$x = $x.$y= "PHP7 7e version de PHP"
+$a[0]=$x="PHP7 7e version de PHP"
+
+$y*=$z=490
+
+$a[0]="MySQL"
+$x=$a[0]="MySQL"
+
+Exercice 6
+
+$x="9E3"
+$y=7
+$z=9000
+
+Exercice 7
+$a=FALSE
+$b=TRUE
+$c=FALSE
+$d=TRUE
+$e=FALSE
+$f=TRUE

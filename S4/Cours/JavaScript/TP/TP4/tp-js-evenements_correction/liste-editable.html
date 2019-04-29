@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Menu déroulant éditable</title>
+</head>
+<body>
+	<p>Quelques langages interprétés :</p>
+
+	<ol>
+		<li>PHP</li>
+		<li>Ruby</li>
+		<li>Python</li>
+		<li>Perl</li>
+		<li>Javascript</li>
+		<li>Lua</li>
+		<li>VBScript</li>
+	</ol>
+	<script>
+		// Deux alternatives
+		/*
+		// 1) Sans délégation d'évènement :
+		var items = document.querySelectorAll('body > ol > li');
+		for (var item of items) {
+			item.addEventListener("click", function() {
+				if (text = prompt("Modifiez le texte", this.innerHTML)) {
+					this.innerHTML = text;
+				}
+			}, false);
+		}
+		/**/
+		// 2) Avec délégation d'évènement et Event.target
+		document.querySelector('body > ol')
+				.addEventListener(
+						"click",
+						function(e) {
+							if (text = prompt("Modifiez le texte",
+									e.target.innerHTML)) {
+								e.target.innerHTML = text;
+							}
+						}, false);
+		/**/
+	</script>
+</body>
+</html>
+

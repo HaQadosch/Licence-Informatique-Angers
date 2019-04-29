@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Cocher/décocher</title>
+</head>
+<body>
+	<ol>
+		<li><input type="checkbox"> A</li>
+		<li><input type="checkbox"> B</li>
+		<li><input type="checkbox"> C</li>
+	</ol>
+	<p>
+		<input type="button" id="check" value="Cocher tout" /> 
+		<input type="button" id="uncheck" value="Décocher tout" />
+	</p>
+	<script>
+	function checkOrUncheckAll(status) {
+	    var checkboxes = document.querySelectorAll("body > ol > li > input[type='checkbox']");
+	    for (var i=0, c=checkboxes.length; i<c; i++) {
+	        checkboxes[i].checked = status;
+	    }
+	}
+				
+	var buttonCheck   = document.getElementById('check');
+	var buttonUncheck = document.getElementById('uncheck');
+		
+	if (buttonCheck && buttonUncheck) {
+	    buttonCheck.addEventListener('click', function() {
+	        checkOrUncheckAll(true)
+	    }, false);
+		
+	    buttonUncheck.addEventListener('click', function() {
+	        checkOrUncheckAll(false)
+	    }, false);
+	}
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,114 @@
+Exercice 1
+
+<?php 
+$num=rand(1,100);
+if(($num%3) or ($num%5)) echo(" c'est un echec ");
+else echo ("c'est une réussite");
+?>
+
+Exercice 2
+
+<?php
+if($sexe=="Féminin" and $age>21 and $age<40) echo(" Bienvenue, jeune femme ");
+?>
+
+Exercice 3
+
+<?php
+$Tirages[];
+$taille=3
+do{
+	for($i=0;$i<$taille;$i++){
+		$Tirages[$i]=rand(1,1000);
+		echo($Tirages[$i]);
+	}
+	echo("<br />");
+}while($Tirages[0]%2 and !($Tirages[1]%2 or $Tirages[2]%2);
+?>
+
+Exercice 4
+
+<?php
+$initx=80;//lettre P
+$inity=72;//lettre H
+$initz=80;
+for($initx=80;$initx<90;$initx++){
+		for($initz=80;$initz<90;$initz++){
+			for($number=100;$number<1000;$number+=100){
+				$tab[]=$number.chr($initx).chr($inity).chr($initz)."75";
+			} $initz=65;
+		}$inity=65
+	}$initx=65
+}
+print_r($tab);
+
+Exercice 5
+<?php
+$nombre=rand(001,999);
+$chiffre1;
+$chiffre2;
+$chiffre3;
+$compteTirage=0;
+do{
+	$compteTirage++;
+	$chiffre1=rand(0,9);
+	$chiffre2=rand(0,9);
+	$chiffre3=rand(0,9);
+} while ($chiffre1.$chiffre2.$chiffre3!=$nombre);
+echo(compteTirage);
+?>
+
+Exercice 6
+<?php 
+$alphabet[];
+for($num=11;$num<=26;$num++){
+	$alphabet[$num]=chr($num+54);
+}
+foreach($alphabet as $num=>$result){
+	echo '$alphabet[$num]=',"$result";
+}
+?>
+
+Exercice 7
+<?php
+$nombre=rand(001,999);
+$chiffre1;
+$chiffre2;
+$chiffre3;
+$compteTirage=0;
+do{
+	$compteTirage++;
+	$chiffre1=rand(0,9);
+	$chiffre2=rand(0,9);
+	$chiffre3=rand(0,9);
+} while ($chiffre1.$chiffre2.$chiffre3%$nombre!=0);
+echo(compteTirage," tirages pour obtenir ",$chiffre1.$chiffre2.$chiffre3," multiple de $nombre ");
+
+?>
+
+Exercice 8
+<?php
+//Il faut $A > $B
+$A=56952;
+$B=3444;
+try
+{
+    if(!(is_integer($A) || is_integer($b))) {
+        throw new Exception("Nombre(s) non entiers !",99);
+    } else {
+        echo "Le PGCD de $A et $B est : ";
+        do
+        {
+            $R=$A%$B;
+            $A=$B;
+            $B=$R;
+        }
+        while($R!=0);
+        echo $A;
+    }
+}
+catch(Exception $except)
+{
+    echo $except->getMessage();
+}
+?>

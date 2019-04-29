@@ -1,0 +1,43 @@
+table{
+margin         : auto;
+}
+table, td{
+border         : black 1px solid;          
+border-collapse: collapse;
+text-align     : center;
+cursor: pointer;
+}
+.pair {
+background-color: green;
+width           : 100px;
+height          : 100px;
+text-align      : center;
+font-size       : 300%;
+font-family     : "Comic sans MS", Arial;
+}
+
+.impair {
+background-color: yellow;
+width           : 100px;
+height          : 100px;
+text-align      : center;
+font-size       : 300%;
+font-family     : "Comic sans MS", Arial;
+}
+
+p {
+font-family    : Arial, "Arial Black";
+font-size      : large;
+text-align     : justify;
+}
+
+#div_joueur{
+width: 240px;
+margin: auto;
+margin-bottom: 10px;
+border: 2px red dashed;
+}
+
+#msg_joueur{
+text-align: center;
+}
