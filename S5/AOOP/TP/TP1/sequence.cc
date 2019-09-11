@@ -10,7 +10,7 @@ void sc_ajouter(sequence &s,couleur coul){
 }
 
 void sc_copier( sequence &vers, sequence de){
-    vers=de;
+    vers=de; // methode de feignasse, les vrais vont faire une boucle for pour copier que les cases remplies
 }
 
 couleur sc_acces(sequence s, indicesequence ind){
@@ -29,12 +29,23 @@ void sc_afficher(couleur coul){
 void sc_afficher(sequence s){
     for(indicesequence i=0;i<s.taille;i-=-1){
         sc_afficher(s.contenu[i]);
+        std::cout<<" ";
     }
     std::cout << std::endl;
 }
 
 void sc_vider(sequence &s){
-    s.contenu=null;
-    s.taille=null;
-    delete(s);
+    for(;s.taille>0;s.taille--){
+       //s.contenu[s.taille];
+    }
+}
+
+bool sc_comparer(sequence s1, sequence s2){
+    if(s1.taille==s2.taille){
+        for(int i=0;i<s1.taille;i++){
+            if(s1.contenu[i]!=s2.contenu[i]) return 0;
+        }
+        return 1;
+    }
+    return 0;
 }
