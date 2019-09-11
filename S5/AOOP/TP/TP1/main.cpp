@@ -18,9 +18,8 @@ sc_afficher(sc_acces(a,i));
 sc_vider(a); // 8
 std::cout << "\n";
 std::cout << "A: "; sc_afficher(a); // 9
-std::cout << "B: "; sc_afficher(b); /*
+std::cout << "B: "; sc_afficher(b); 
 std::cout << sc_comparer(a,b) << "\n"; // 10
 sc_copier(a,b);
 std::cout << sc_comparer(a,b) << "\n";
-*/
 return 0; }
