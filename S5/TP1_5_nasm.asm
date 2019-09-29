@@ -64,8 +64,9 @@ main:
 	push 	eax
 	push 	dword msg
 	call	printf
-	add	esp,8
-
+	add	esp,8	
+	
+	
     	popad
     
    	xor 	eax,eax			;mov eax, 0 -> équivalent au return EXIT_SUCCESS
@@ -75,4 +76,16 @@ main:
   	ret
      
      
-
+; a mettre à jour, placer code qui suit :
+;.for i:
+;	cmp	ecx,MAXI
+;	jge	.endfor
+;		mov	eax,ecx
+;		shl	eax,1
+;		
+;		mov	[ebx + ecx * 4], eax
+;	
+;	inc	ecx
+;	jmp	.for_i
+;	
+;.endfor_i:
