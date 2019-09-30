@@ -1,4 +1,4 @@
-#include "sequence2.hh"
+#include "sequence.hh"
 #include <iostream>
 /** @author BRINON Baptiste
  * Ceci n'est pas la correction du TP, mais une résolution possible de celui-ci
@@ -12,7 +12,7 @@ int main(int argc,char * argv[]){
       std::cout<<"./nomprog [numero de la partie du TP à tester]"<<std::endl;
   }else{ // execution normale
     switch(std::stoi(argv[1])){
-
+  
       case(1||3):{ // cas de la partie 1 et 3
         sequence a, b;
         sc_initialiservide(a); // 3
