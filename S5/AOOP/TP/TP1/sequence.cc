@@ -42,7 +42,7 @@ void sc_vider(sequence &s){
 
 bool sc_comparer(sequence s1, sequence s2){
     if(s1.taille==s2.taille){
-        for(int i=0;i<s1.taille;i++){
+        for(indicesequence i=0;i<s1.taille;i++){
             if(s1.contenu[i]!=s2.contenu[i]) return 0;
         }
         return 1;
