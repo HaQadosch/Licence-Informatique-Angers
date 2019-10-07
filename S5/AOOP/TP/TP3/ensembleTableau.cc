@@ -4,10 +4,10 @@
  */
 
 /*constructeurs*/
-ensemble::ensembleTableau(){
+ensembleTableau::ensembleTableau(){
 
 }
 
-ensemble::ensembleTableau(ensembleTableau copied){
+ensembleTableau::ensembleTableau(ensemble const & copied){
 
 }

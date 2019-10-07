@@ -6,8 +6,8 @@ class ensembleTableau: public ensemble{
     /*fonctions*/
 
     /*constructeurs*/
-    ensemble();
-    ensemble(ensemble const & copied);
+    ensembleTableau();
+    ensembleTableau(ensemble const & copied);
 
   private:
     /*variables*/

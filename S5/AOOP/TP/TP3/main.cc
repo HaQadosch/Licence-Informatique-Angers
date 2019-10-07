@@ -20,10 +20,10 @@ int main(int argc,char * argv[]){
         break;}
 
       case(3):{ // partie 3 du TP
-        /*
-        ensemble ancient = new ensemble();
-        ensemble newone = new ensemble(ancient);
-        */
+
+        ensemble ancient;
+      //  ensemble newone = new ensemble(ancient);
+
         break;}
 
       case(4):{ // partie 4 du TP
