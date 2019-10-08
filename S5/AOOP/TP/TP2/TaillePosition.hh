@@ -1,19 +1,19 @@
 
-/** @author BRINON Baptiste
+/** \author BRINON Baptiste
  * Ceci n'est pas la correction du TP, mais une résolution possible de celui-ci
  */
 
 typedef int coordonnee;
 
-class Position{
+class position{
   public:
     /*fonctions*/
-    bool Comparaison(Position test) const;
+    bool comparaison(position test) const;
 
     /*constructeurs*/
-    Position(Position const & pos); // par recopie
-    Position(coordonnee x, coordonnee y);//avec paramètre
-    Position();//vide
+    position(position const & pos); // par recopie
+    position(coordonnee x, coordonnee y);//avec paramètre
+    position();//vide
 
     /*setters & getters*/
     coordonnee getX() const {return x;}
@@ -27,13 +27,13 @@ class Position{
 
 };
 
-class Taille{
+class taille{
   public:
     /*fonctions*/
 
     /*constructeurs*/
-    Taille(coordonnee largeur, coordonnee hauteur); // avec paramètre
-    Taille(); // vide
+    taille(coordonnee largeur, coordonnee hauteur); // avec paramètre
+    taille(); // vide
 
     /*setters & getters*/
     coordonnee getLargeur() const {return largeur;}
