@@ -7,8 +7,10 @@ class EnsembleTableau: public Ensemble{
 
     /*constructeurs*/
     EnsembleTableau():Ensemble();
-    EnsembleTableau(Ensemble const & copied):Ensemble(copied);
+    EnsembleTableau(EnsembleTableau const & copied):Ensemble(copied);
+//    EnsembleTableau(Ensemble const & copied):Ensemble(copied);
 
   private:
     /*variables*/
+    int elem[];
 };

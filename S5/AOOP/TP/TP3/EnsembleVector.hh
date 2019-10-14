@@ -1,4 +1,7 @@
-class EnsembleVector{
+#include "Ensemble.h"
+#include <vector>
+
+class EnsembleVector: public Ensemble{
   public:
     /*fonctions*/
 

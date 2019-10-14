@@ -5,8 +5,8 @@ class Ensemble{
     /*fonctions*/
 
     /*constructeurs*/
-    Ensemble(){};
-    Ensemble(Ensemble const & copied){};
+    Ensemble()=default;
+    Ensemble(Ensemble const & copied);
 
   private:
     /*variables*/
