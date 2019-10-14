@@ -25,8 +25,6 @@ int nb_voyelles(std::string s){
     return nb;
 }
 
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////est_Palindrome
 /// \brief est_Palindrome verifie si la chaine est un palindrome
 /// \param s chaine testée

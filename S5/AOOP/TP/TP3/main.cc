@@ -1,6 +1,6 @@
-#include <iostream>/*
-#include <stdlib.h>*/
-#include "ensembleTableau.hh"
+#include <iostream>
+#include <string>
+#include <iostream>
 /** \author BRINON Baptiste
  * Ceci n'est pas la correction du TP, mais une résolution possible de celui-ci
  */
@@ -14,6 +14,12 @@ int main(int argc,char * argv[]){
     switch(std::stoi(argv[1])){
 
       case(1): { // Partie 1 du TP
+        std::ostringstream out;
+        int entier(42);
+        out << entier; // fonctionne avec tout type pouvant être envoyé sur flux
+        std::string s(out.str());
+        std::cout << s << std::endl;
+        return 0;
         break;}
 
       case(2):{ // partie 2 du TP
