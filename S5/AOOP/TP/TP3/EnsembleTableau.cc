@@ -1,13 +1,13 @@
-#include "ensembleTableau.hh"
+#include "EnsembleTableau.hh"
 /** \author BRINON Baptiste
  * Ceci n'est pas la correction du TP, mais une résolution possible de celui-ci
  */
 
 /*constructeurs*/
-ensembleTableau::ensembleTableau(){
+EnsembleTableau::EnsembleTableau(){
 
 }
 
-ensembleTableau::ensembleTableau(ensemble const & copied){
+ensembleTableau::EnsembleTableau(ensemble const & copied){
 
 }

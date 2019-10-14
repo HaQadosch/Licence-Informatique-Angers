@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-class ensemble{
+class Ensemble{
   public:
     /*fonctions*/
 
     /*constructeurs*/
-    ensemble(){};
-    ensemble(ensemble const & copied){};
+    Ensemble(){};
+    Ensemble(Ensemble const & copied){};
 
   private:
     /*variables*/
+
 };

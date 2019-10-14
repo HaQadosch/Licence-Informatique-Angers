@@ -1,4 +1,4 @@
-class ensembleVector{
+class EnsembleVector{
   public:
     /*fonctions*/
 

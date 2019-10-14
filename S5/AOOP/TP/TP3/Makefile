@@ -1,6 +1,6 @@
 FAGS = -Wall -std=c++14
 BOSS = main.cc
-MINIONS = ensemble.cc ensembleTableau.cc ensembleVector.cc
+MINIONS = Ensemble.cc EnsembleTableau.cc EnsembleVector.cc
 WORKER = exe
 
 main: $(BOSS) $(MINIONS)
