@@ -1,10 +1,17 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include "Ensemble.hh"
+#include "EnsembleTableau.hh"
+#include "EnsembleVector.hh"
 /** \author BRINON Baptiste
  * Ceci n'est pas la correction du TP, mais une résolution possible de celui-ci
  */
+
+void testEnsemble(Ensemble & e1, Ensemble & e2){
+  std::cout << "1. 0->" << e1.appartient(12) << std::endl;
+  std::cout << "2. 1->" << e1.estVide() << std::endl;
+}
+
 
 int main(int argc,char * argv[]){
   //en fonction du num d'exercice, on change l'execution
@@ -27,10 +34,8 @@ int main(int argc,char * argv[]){
         break;}
 
       case(3):{ // partie 3 du TP
-
-        Ensemble ancient;
-      //  ensemble newone = new ensemble(ancient);
-
+        EnsembleTableau et1, et2;
+        testEnsemble(et1, et2);
         break;}
 
       case(4):{ // partie 4 du TP
