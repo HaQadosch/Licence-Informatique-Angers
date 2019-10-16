@@ -4,10 +4,3 @@
  */
 
 /*constructeurs*/
-EnsembleTableau::EnsembleTableau(){
-
-}
-
-ensembleTableau::EnsembleTableau(ensemble const & copied){
-
-}

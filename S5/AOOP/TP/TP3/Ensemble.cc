@@ -2,5 +2,5 @@
 
 
 Ensemble::Ensemble(Ensemble const & copied){
-  this=copied;
+  this->elem=copied.elem;
 }

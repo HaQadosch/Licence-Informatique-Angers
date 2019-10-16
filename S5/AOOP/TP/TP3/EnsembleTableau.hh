@@ -6,8 +6,8 @@ class EnsembleTableau: public Ensemble{
     /*fonctions*/
 
     /*constructeurs*/
-    EnsembleTableau():Ensemble();
-    EnsembleTableau(EnsembleTableau const & copied):Ensemble(copied);
+    EnsembleTableau():Ensemble(){};
+    EnsembleTableau(EnsembleTableau const & copied):Ensemble(copied){};
 //    EnsembleTableau(Ensemble const & copied):Ensemble(copied);
 
   private:

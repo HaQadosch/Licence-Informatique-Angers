@@ -10,5 +10,5 @@ class Ensemble{
 
   private:
     /*variables*/
-
+    int elem[];
 };

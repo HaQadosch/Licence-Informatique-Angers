@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include <iostream>
+#include <sstream>
+#include "Ensemble.hh"
 /** \author BRINON Baptiste
  * Ceci n'est pas la correction du TP, mais une résolution possible de celui-ci
  */
@@ -9,7 +10,7 @@ int main(int argc,char * argv[]){
   //en fonction du num d'exercice, on change l'execution
   if(argc!=2){
       std::cout<<"utilisation:"<<std::endl;
-      std::cout<<"./nomprog [numero de la partie du TP à tester]"<<std::endl;
+      std::cout<<"./exe [numero de la partie du TP à tester]"<<std::endl;
   }else{
     switch(std::stoi(argv[1])){
 
@@ -27,7 +28,7 @@ int main(int argc,char * argv[]){
 
       case(3):{ // partie 3 du TP
 
-        ensemble ancient;
+        Ensemble ancient;
       //  ensemble newone = new ensemble(ancient);
 
         break;}

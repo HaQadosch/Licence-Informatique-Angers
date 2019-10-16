@@ -4,9 +4,9 @@ class Element{
   public:
     /*fonctions*/
       /////////////////////////
-      std::string toString() const{
+      /*std::string toString() const{
         return
-      }
+      }*/
     /*constructeurs*/
     Element(position const & pos, taille const & tai);
     /*getters&setters*/
@@ -15,6 +15,7 @@ class Element{
     void setPos(position nouv){pos=nouv;}
     void setTai(taille nouv){tai=nouv;}
 
+    /*variables*/
   private:
     position pos;
     unsigned int tai;
@@ -43,20 +44,22 @@ class ObjetRamassable{
 
 class Personnage:public Element{
   public:
-  /*fonctions*/
-  void ramasser(ObjetRamassable const & o){
-    nbPoints += o.nbPoints();
-  }
-  std::string toString() const{
-    return element::tostring()+"-"+nom+"-"+std::string(nbPoints);
-  }
+    /*fonctions*/
+    void ramasser(ObjetRamassable const & o){
+      nbPoints += o.nbPoints();
+    }
+    std::string toString() const{
+      return element::tostring()+"-"+nom+"-"+std::string(nbPoints);
+    }
 
-  /*constructeurs*/
-  Personnage(position const & pos,taille const & taille,std::string const & nom)
-    :Element(pos,taille), _nom(nom), _nbPoints(0){}
+    /*constructeurs*/
+    Personnage(position const & pos,taille const & taille,std::string const & nom)
+      :Element(pos,taille), _nom(nom), _nbPoints(0){}
 
-/*setter&getters*/
+    /*setter&getters*/
+
+    /*variables*/
   private:
-  std::string nom;
-  unsigned int nbPoints
+    std::string nom;
+    unsigned int nbPoints;
 }
