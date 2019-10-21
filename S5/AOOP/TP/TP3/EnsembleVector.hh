@@ -7,14 +7,16 @@ class EnsembleVector: public Ensemble{
     /*fonctions*/
     bool appartient(int e) const override;
     bool estVide() const override;
+    void ajouter(int e);
     void afficher1() const override;
+    void enlever(int e);
     /*constructeurs*/
     EnsembleVector()=default;
     EnsembleVector(EnsembleVector const & copied)=default;
     ~EnsembleVector()=default;
 
   protected:
-    void ajoutersansverif(int e)override;
+    void ajouterSansVerif(int e) override;
 
   private:
     /*variables*/

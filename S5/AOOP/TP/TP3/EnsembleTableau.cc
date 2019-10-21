@@ -30,7 +30,7 @@ bool EnsembleTableau::estVide() const {
   return(taille==0);
 }
 
-void EnsembleTableau::ajoutersansverif(int e){
+void EnsembleTableau::ajouterSansVerif(int e){
   int * nouv = new int[taille + 1];
   for (std::size_t i=0; i<taille; ++i){
     nouv[i]=elem[i];
@@ -46,4 +46,28 @@ void EnsembleTableau::afficher1() const{
     std::cout << elem[i]<<" ";
   }
   std::cout << std::endl;
+}
+
+void EnsembleTableau::enlever(int e){
+  for(size_t i=0;i<taille;++i){
+    if( elem[i]==e){
+      if(taille==1){
+          delete [] elem;
+          elem = nullptr;
+      }
+      else { // on prends la dernière valeur, et on la place à l'emplacement de celle qu'on veut supprimer
+        elem[i]=elem[taille-1];
+      }
+      taille --;
+      return; // a la place de break;
+    }
+  }
+}
+/* méthodes de parcours */
+bool EnsembleTableau::estFini(parcours const & p) const{
+  return p.position>=taille;
+}
+
+int EnsembleTableau::acces(parcours const & p) const{
+
 }

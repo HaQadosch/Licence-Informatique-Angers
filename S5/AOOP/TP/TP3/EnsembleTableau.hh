@@ -9,14 +9,15 @@ class EnsembleTableau: public Ensemble{
     bool estVide() const override;
     void ajouter(int e);
     void afficher1() const override;
+    void enlever(int e);
     /*constructeurs*/
     EnsembleTableau()=default;
     EnsembleTableau(EnsembleTableau const & copied)/*:Ensemble(copied){}*/;
     ~EnsembleTableau()=default;
-//    EnsembleTableau(Ensemble const & copied):Ensemble(copied);
+    EnsembleTableau(Ensemble const & copied);
 
   protected:
-    void ajoutersansverif(int e) override;
+    void ajouterSansVerif(int e) override;
 
   private:
     /*variables*/

@@ -13,7 +13,19 @@ void testEnsemble(Ensemble & e1, Ensemble & e2){
   e1.ajouter(4);e1.ajouter(5);e1.ajouter(4);
   std::cout<< "3. 1->" << e1.appartient(5) << std::endl;
   std::cout<< "4. 0->" << e1.appartient(6) << std::endl;
-  std::cout <<"5. 4 5->"; e1.afficher1(); 
+  std::cout <<"5. 4 5->"; e1.afficher1()<<std::endl;
+  std::cout <<"5b. 4 5->"; e1.afficher1()<<std::endl;
+  for(parcours p=e1.commencer();!e1.estFini(p);e1.suivant(p)){
+    std::cout << e1.acces(p);
+  }
+  std::court <<"5c 4 5->";e1.afficher();
+  std::cout<<std::endl
+  e1.enlever(6);e1.enlever(4);
+  std::cout <<"6. 5->" << e1.afficher1()<<std::endl;
+  e1.enlever(5);
+  std::cout <<"7. ->";e1.afficher1()<<std::endl;
+
+
 }
 
 
