@@ -2,7 +2,7 @@
 
 class Element{
   public:
-    /*fonctions*/
+    /*méthodes*/
       /////////////////////////
       /*std::string toString() const{
         return
@@ -44,7 +44,7 @@ class ObjetRamassable{
 
 class Personnage:public Element{
   public:
-    /*fonctions*/
+    /*méthodes*/
     void ramasser(ObjetRamassable const & o){
       nbPoints += o.nbPoints();
     }

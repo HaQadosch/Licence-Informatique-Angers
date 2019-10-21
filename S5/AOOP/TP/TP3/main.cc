@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 #include "EnsembleTableau.hh"
-#include "EnsembleVector.hh"
+//#include "EnsembleVector.hh"
 /** \author BRINON Baptiste
  * Ceci n'est pas la correction du TP, mais une résolution possible de celui-ci
  */
@@ -10,6 +10,10 @@
 void testEnsemble(Ensemble & e1, Ensemble & e2){
   std::cout << "1. 0->" << e1.appartient(12) << std::endl;
   std::cout << "2. 1->" << e1.estVide() << std::endl;
+  e1.ajouter(4);e1.ajouter(5);e1.ajouter(4);
+  std::cout<< "3. 1->" << e1.appartient(5) << std::endl;
+  std::cout<< "4. 0->" << e1.appartient(6) << std::endl;
+  std::cout <<"5. 4 5->"; e1.afficher1(); 
 }
 
 

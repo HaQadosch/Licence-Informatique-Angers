@@ -1,17 +1,22 @@
 #pragma once
 #include "Ensemble.hh"
-#include <stdio.h>
+#include <cstddef>
 
 class EnsembleTableau: public Ensemble{
   public:
     /*fonctions*/
     bool appartient(int e) const override;
     bool estVide() const override;
+    void ajouter(int e);
+    void afficher1() const override;
     /*constructeurs*/
     EnsembleTableau()=default;
     EnsembleTableau(EnsembleTableau const & copied)/*:Ensemble(copied){}*/;
     ~EnsembleTableau()=default;
 //    EnsembleTableau(Ensemble const & copied):Ensemble(copied);
+
+  protected:
+    void ajoutersansverif(int e) override;
 
   private:
     /*variables*/
