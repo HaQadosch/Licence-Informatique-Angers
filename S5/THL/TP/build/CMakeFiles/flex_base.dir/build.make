@@ -57,9 +57,9 @@ include CMakeFiles/flex_base.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/flex_base.dir/flags.make
 
-scanner.cpp: ../scanner.ll
+scanner.cpp: ../exo2.ll
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/baptiste/Documents/université/S5/THL/TP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "[FLEX][scanner] Building scanner with flex 2.6.0"
-	cd /home/baptiste/Documents/université/S5/THL/TP && /usr/bin/flex -o/home/baptiste/Documents/université/S5/THL/TP/build/scanner.cpp scanner.ll
+	cd /home/baptiste/Documents/université/S5/THL/TP && /usr/bin/flex -o/home/baptiste/Documents/université/S5/THL/TP/build/scanner.cpp exo2.ll
 
 CMakeFiles/flex_base.dir/scanner.cpp.o: CMakeFiles/flex_base.dir/flags.make
 CMakeFiles/flex_base.dir/scanner.cpp.o: scanner.cpp

@@ -1,18 +1,24 @@
 %{
-
 #include "scanner.hh"
-
 #define YY_NO_UNISTD_H
-
 %}
 
 %option c++
 %option yyclass="Scanner"
 %option noyywrap
 
-
 %%
+^[ ]+ ; // cas des espaces en début de phrase
 
+
+[ ]+ { // cas des espaces en début de phrases
+  std::cout <<" ";
+}
+
+
+.  { // affichage
+  std::cout << YYText();
+}
 %%
 
 int main( int argc, char* argv[] )
