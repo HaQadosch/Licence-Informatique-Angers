@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+.././scanner.hh
+FlexLexer.h
+-
+
+/home/baptiste/Documents/université/S5/THL/TP/build/scanner.cpp
+inttypes.h
+-
+iostream
+-
+errno.h
+-
+cstdlib
+-
+cstdio
+-
+cstring
+-
+FlexLexer.h
+-
+scanner.hh
+/home/baptiste/Documents/université/S5/THL/TP/build/scanner.hh
+unistd.h
+-
+
