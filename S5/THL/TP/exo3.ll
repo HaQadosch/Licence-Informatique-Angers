@@ -11,7 +11,10 @@
 /* règles et traitement*/
 %%
 /* format: [expression_reguliere] { code } */
-
+[\*\_\+]|([\*][\*]) {
+  nbOpe++;
+  std::cout << "opératateur :" << YYText() << std::endl; 
+}
 .  { // cas par défaut/d'erreur
 }
 %%
