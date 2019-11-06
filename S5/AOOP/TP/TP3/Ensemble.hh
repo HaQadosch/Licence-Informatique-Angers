@@ -36,6 +36,18 @@ class Ensemble{
     virtual void suivant(parcours & p) const;
     virtual int acces(parcours const & p) const;
 
+    void calculerUnion(ensemble const & e1, ensemble const & e2),
+    // e3.calculerUnion(e1,e2);
+
+    static ensemble calculerUnion(ensemble const &e1, ensemble const &e2);
+    // e3 = calculerUnion(e1,e2);
+
+    ensemble calculerUnion(ensemble const &e2)const;
+    //e3= e1.calculerUnion(e2);
+
+    static void calculerEnsemble(ensemble const & e1, ensemble const &e2, ensemble & result);
+    //ensemble::calculerEnsemble(e1,e2,e3);
+
   protected:
     /*méthodes*/
     virtual void ajouterSansVerif(int e) =0;
