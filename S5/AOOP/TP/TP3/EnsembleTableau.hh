@@ -15,7 +15,7 @@ class EnsembleTableau: public Ensemble{
     EnsembleTableau(EnsembleTableau const & copied)/*:Ensemble(copied){}*/;
     ~EnsembleTableau()=default;
     EnsembleTableau(Ensemble const & copied);
-
+    void vider() override;
   protected:
     void ajouterSansVerif(int e) override;
 

@@ -53,3 +53,7 @@ bool EnsembleVector::estFini(parcours const & p) const{
 int EnsembleVector::acces(parcours const & p) const{
   return elem[p.position()];
 }
+
+void ensembleVector::vider(){
+  contenu.clear();
+}

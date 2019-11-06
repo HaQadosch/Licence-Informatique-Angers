@@ -14,7 +14,8 @@ class EnsembleVector: public Ensemble{
     EnsembleVector()=default;
     EnsembleVector(EnsembleVector const & copied)=default;
     ~EnsembleVector()=default;
-
+    void vider() override;
+    
   protected:
     void ajouterSansVerif(int e) override;
 
