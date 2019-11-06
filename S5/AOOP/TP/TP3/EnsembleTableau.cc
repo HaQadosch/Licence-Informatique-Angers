@@ -71,3 +71,9 @@ bool EnsembleTableau::estFini(parcours const & p) const{
 int EnsembleTableau::acces(parcours const & p) const{
 
 }
+
+void vider(){
+  delete [] contenu;
+  contenu =nullptr;
+  taille=0;
+}
