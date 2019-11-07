@@ -10,7 +10,7 @@
 FlexLexer.h
 -
 
-/home/baptiste/Documents/université/S5/THL/TP/build/scanner.cpp
+/home/baptiste/Documents/université/S5/THL/TP/TP1/build/scanner.cpp
 inttypes.h
 -
 iostream
@@ -26,7 +26,7 @@ cstring
 FlexLexer.h
 -
 scanner.hh
-/home/baptiste/Documents/université/S5/THL/TP/build/scanner.hh
+/home/baptiste/Documents/université/S5/THL/TP/TP1/build/scanner.hh
 unistd.h
 -
 

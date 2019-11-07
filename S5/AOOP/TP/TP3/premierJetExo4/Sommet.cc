@@ -24,4 +24,9 @@ void supprimerArc(identifiant ext){
     ++it;
   if(it != arcs.end())
     arcs.erase(it);
+  /*
+  for(auto i=arc.begin() ... ){
+    if((*i).ext == ext)
+      arcs.erase(i); // faux car erase invalide les iterateurs
+  }*/
 }

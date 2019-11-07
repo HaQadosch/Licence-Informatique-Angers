@@ -10,13 +10,13 @@
 %%
 ^[ ]+ ; // cas des espaces en début de phrase
 
-
-[ ]+ { // cas des espaces en début de phrases
+ // cas des espaces en milieu de phrases
+[ ]+ {
   std::cout <<" ";
 }
 
-
-.  { // affichage
+ // affichage
+.  {
   std::cout << YYText();
 }
 %%

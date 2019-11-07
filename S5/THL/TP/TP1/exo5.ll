@@ -8,10 +8,10 @@
 %option yyclass="Scanner"
 %option noyywrap
 
-/* règles et traitement*/
+ /* règles et traitement */
 %%
-/* format: [expression_reguliere] { code } */
-
+ /* format: [expression_reguliere] { code } */
+ 
 .  { // cas par défaut/d'erreur
 }
 %%

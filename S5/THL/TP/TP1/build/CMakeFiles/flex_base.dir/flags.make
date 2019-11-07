@@ -6,5 +6,5 @@ CXX_FLAGS =   -Wall -Wpedantic -std=c++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/baptiste/Documents/université/S5/THL/TP/. -I/home/baptiste/Documents/université/S5/THL/TP/build 
+CXX_INCLUDES = -I/home/baptiste/Documents/université/S5/THL/TP/TP1/. -I/home/baptiste/Documents/université/S5/THL/TP/TP1/build 
 
