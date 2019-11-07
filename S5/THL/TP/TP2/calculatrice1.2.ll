@@ -27,10 +27,15 @@ using token = yy::Parser::token;
 
 
 fin return token::END;
-
+[ ]+ ;
 [0-9]+      {
     yylval->build<int>(std::atoi(yytext));
     return token::NUMBER;
+}
+
+[\+|\-|\*|\/] {
+  yylval->build<char>(yytext);
+  return token::OP;
 }
 
 "\n"          {

@@ -57,16 +57,16 @@ include CMakeFiles/bison_base.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/bison_base.dir/flags.make
 
-parser.cpp: ../parser.yy
+parser.cpp: ../calculatrice1.2.yy
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/baptiste/Documents/université/S5/THL/TP/TP2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "[BISON][parser] Building parser with bison 3.0.4"
-	cd /home/baptiste/Documents/université/S5/THL/TP/TP2 && /usr/bin/bison -d -o /home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp parser.yy
+	cd /home/baptiste/Documents/université/S5/THL/TP/TP2 && /usr/bin/bison -d -o /home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp calculatrice1.2.yy
 
 parser.hpp: parser.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate parser.hpp
 
-scanner.cpp: ../scanner.ll
+scanner.cpp: ../calculatrice1.2.ll
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/baptiste/Documents/université/S5/THL/TP/TP2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "[FLEX][scanner] Building scanner with flex 2.6.0"
-	cd /home/baptiste/Documents/université/S5/THL/TP/TP2 && /usr/bin/flex -o/home/baptiste/Documents/université/S5/THL/TP/TP2/build/scanner.cpp scanner.ll
+	cd /home/baptiste/Documents/université/S5/THL/TP/TP2 && /usr/bin/flex -o/home/baptiste/Documents/université/S5/THL/TP/TP2/build/scanner.cpp calculatrice1.2.ll
 
 CMakeFiles/bison_base.dir/main.cc.o: CMakeFiles/bison_base.dir/flags.make
 CMakeFiles/bison_base.dir/main.cc.o: ../main.cc

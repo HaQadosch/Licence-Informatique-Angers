@@ -40,7 +40,7 @@
 #ifndef YY_YY_HOME_BAPTISTE_DOCUMENTS_UNIVERSIT_S5_THL_TP_TP2_BUILD_PARSER_HPP_INCLUDED
 # define YY_YY_HOME_BAPTISTE_DOCUMENTS_UNIVERSIT_S5_THL_TP_TP2_BUILD_PARSER_HPP_INCLUDED
 // //                    "%code requires" blocks.
-#line 11 "parser.yy" // lalr1.cc:377
+#line 11 "calculatrice1.2.yy" // lalr1.cc:377
 
     class Scanner;
     class Driver;
@@ -289,8 +289,12 @@ namespace yy {
     /// An auxiliary type to compute the largest semantic type.
     union union_type
     {
+      // OP
+      char dummy1[sizeof(char)];
+
       // NUMBER
-      char dummy1[sizeof(int)];
+      // operation
+      char dummy2[sizeof(int)];
 };
 
     /// Symbol semantic values.
@@ -315,7 +319,8 @@ namespace yy {
       {
         NL = 258,
         END = 259,
-        NUMBER = 260
+        OP = 260,
+        NUMBER = 261
       };
     };
 
@@ -352,6 +357,8 @@ namespace yy {
       /// Constructor for valueless symbols, and symbols from each type.
 
   basic_symbol (typename Base::kind_type t, const location_type& l);
+
+  basic_symbol (typename Base::kind_type t, const char v, const location_type& l);
 
   basic_symbol (typename Base::kind_type t, const int v, const location_type& l);
 
@@ -429,6 +436,10 @@ namespace yy {
     static inline
     symbol_type
     make_END (const location_type& l);
+
+    static inline
+    symbol_type
+    make_OP (const char& v, const location_type& l);
 
     static inline
     symbol_type
@@ -636,12 +647,12 @@ namespace yy {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 5,     ///< Last index in yytable_.
-      yynnts_ = 3,  ///< Number of nonterminal symbols.
-      yyfinal_ = 6, ///< Termination state number.
+      yylast_ = 9,     ///< Last index in yytable_.
+      yynnts_ = 5,  ///< Number of nonterminal symbols.
+      yyfinal_ = 8, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 6  ///< Number of tokens.
+      yyntokens_ = 7  ///< Number of tokens.
     };
 
 
@@ -653,7 +664,7 @@ namespace yy {
 
 
 } // yy
-#line 657 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.hpp" // lalr1.cc:377
+#line 668 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.hpp" // lalr1.cc:377
 
 
 

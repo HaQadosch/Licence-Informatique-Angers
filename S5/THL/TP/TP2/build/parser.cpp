@@ -49,11 +49,11 @@
 
 #line 51 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp" // lalr1.cc:412
 // Unqualified %code blocks.
-#line 19 "parser.yy" // lalr1.cc:413
+#line 19 "calculatrice1.2.yy" // lalr1.cc:413
 
     #include <iostream>
     #include <string>
-    
+
     #include "scanner.hh"
     #include "driver.hh"
 
@@ -189,7 +189,12 @@ namespace yy {
   {
       switch (other.type_get ())
     {
-      case 5: // NUMBER
+      case 5: // OP
+        value.copy< char > (other.value);
+        break;
+
+      case 6: // NUMBER
+      case 11: // operation
         value.copy< int > (other.value);
         break;
 
@@ -210,7 +215,12 @@ namespace yy {
     (void) v;
       switch (this->type_get ())
     {
-      case 5: // NUMBER
+      case 5: // OP
+        value.copy< char > (v);
+        break;
+
+      case 6: // NUMBER
+      case 11: // operation
         value.copy< int > (v);
         break;
 
@@ -226,6 +236,13 @@ namespace yy {
    Parser ::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const location_type& l)
     : Base (t)
     , value ()
+    , location (l)
+  {}
+
+  template <typename Base>
+   Parser ::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const char v, const location_type& l)
+    : Base (t)
+    , value (v)
     , location (l)
   {}
 
@@ -262,7 +279,12 @@ namespace yy {
     // Type destructor.
     switch (yytype)
     {
-      case 5: // NUMBER
+      case 5: // OP
+        value.template destroy< char > ();
+        break;
+
+      case 6: // NUMBER
+      case 11: // operation
         value.template destroy< int > ();
         break;
 
@@ -289,7 +311,12 @@ namespace yy {
     super_type::move(s);
       switch (this->type_get ())
     {
-      case 5: // NUMBER
+      case 5: // OP
+        value.move< char > (s.value);
+        break;
+
+      case 6: // NUMBER
+      case 11: // operation
         value.move< int > (s.value);
         break;
 
@@ -348,6 +375,12 @@ namespace yy {
    Parser ::make_END (const location_type& l)
   {
     return symbol_type (token::END, l);
+  }
+
+   Parser ::symbol_type
+   Parser ::make_OP (const char& v, const location_type& l)
+  {
+    return symbol_type (token::OP, v, l);
   }
 
    Parser ::symbol_type
@@ -410,7 +443,12 @@ namespace yy {
   {
       switch (that.type_get ())
     {
-      case 5: // NUMBER
+      case 5: // OP
+        value.move< char > (that.value);
+        break;
+
+      case 6: // NUMBER
+      case 11: // operation
         value.move< int > (that.value);
         break;
 
@@ -429,7 +467,12 @@ namespace yy {
     state = that.state;
       switch (that.type_get ())
     {
-      case 5: // NUMBER
+      case 5: // OP
+        value.copy< char > (that.value);
+        break;
+
+      case 6: // NUMBER
+      case 11: // operation
         value.copy< int > (that.value);
         break;
 
@@ -660,7 +703,12 @@ namespace yy {
          when using variants.  */
         switch (yyr1_[yyn])
     {
-      case 5: // NUMBER
+      case 5: // OP
+        yylhs.value.build< char > ();
+        break;
+
+      case 6: // NUMBER
+      case 11: // operation
         yylhs.value.build< int > ();
         break;
 
@@ -682,23 +730,47 @@ namespace yy {
           switch (yyn)
             {
   case 2:
-#line 38 "parser.yy" // lalr1.cc:859
+#line 39 "calculatrice1.2.yy" // lalr1.cc:859
     {
         std::cout << "nombre : " << yystack_[1].value.as< int > () << std::endl;
     }
-#line 690 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp" // lalr1.cc:859
+#line 738 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp" // lalr1.cc:859
     break;
 
   case 4:
-#line 41 "parser.yy" // lalr1.cc:859
+#line 42 "calculatrice1.2.yy" // lalr1.cc:859
+    {
+      std::cout << "operation : " << yystack_[1].value.as< int > () << std::endl;
+    }
+#line 746 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp" // lalr1.cc:859
+    break;
+
+  case 6:
+#line 45 "calculatrice1.2.yy" // lalr1.cc:859
     {
         YYACCEPT;
     }
-#line 698 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp" // lalr1.cc:859
+#line 754 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp" // lalr1.cc:859
+    break;
+
+  case 7:
+#line 49 "calculatrice1.2.yy" // lalr1.cc:859
+    {
+
+    switch(yystack_[1].value.as< char > ()){
+      case("+") : yylhs.value.as< int > () = yystack_[2].value.as< int > () + yystack_[0].value.as< int > (); break;
+      case("-") : yylhs.value.as< int > () = yystack_[2].value.as< int > () + yystack_[0].value.as< int > (); break;
+      case("*") : yylhs.value.as< int > () = yystack_[2].value.as< int > () + yystack_[0].value.as< int > (); break;
+      case("/") : yylhs.value.as< int > () = yystack_[2].value.as< int > () + yystack_[0].value.as< int > (); break;
+      default : break;
+    }
+
+  }
+#line 770 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp" // lalr1.cc:859
     break;
 
 
-#line 702 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp" // lalr1.cc:859
+#line 774 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp" // lalr1.cc:859
             default:
               break;
             }
@@ -864,62 +936,65 @@ namespace yy {
   }
 
 
-  const signed char  Parser ::yypact_ninf_ = -5;
+  const signed char  Parser ::yypact_ninf_ = -7;
 
   const signed char  Parser ::yytable_ninf_ = -1;
 
   const signed char
    Parser ::yypact_[] =
   {
-      -4,    -1,     0,     4,    -5,    -5,    -5,    -4,    -5
+      -4,     2,    -2,     7,     5,    -7,    -7,     3,    -7,    -7,
+      -4,    -7,    -4,    -7,    -7
   };
 
   const unsigned char
    Parser ::yydefact_[] =
   {
-       0,     0,     0,     0,     4,     2,     1,     0,     3
+       0,     0,     0,     0,     0,     6,     2,     0,     1,     4,
+       0,     7,     0,     3,     5
   };
 
   const signed char
    Parser ::yypgoto_[] =
   {
-      -5,    -2,    -5
+      -7,    -6,    -7,    -7,    -7
   };
 
   const signed char
    Parser ::yydefgoto_[] =
   {
-      -1,     3,     7
+      -1,     3,    10,    12,     4
   };
 
   const unsigned char
    Parser ::yytable_[] =
   {
-       1,     2,     4,     5,     6,     8
+       1,     6,     2,     7,    13,     5,    14,     8,     9,    11
   };
 
   const unsigned char
    Parser ::yycheck_[] =
   {
-       4,     5,     3,     3,     0,     7
+       4,     3,     6,     5,    10,     3,    12,     0,     3,     6
   };
 
   const unsigned char
    Parser ::yystos_[] =
   {
-       0,     4,     5,     7,     3,     3,     0,     8,     7
+       0,     4,     6,     8,    11,     3,     3,     5,     0,     3,
+       9,     6,    10,     8,     8
   };
 
   const unsigned char
    Parser ::yyr1_[] =
   {
-       0,     6,     8,     7,     7
+       0,     7,     9,     8,    10,     8,     8,    11
   };
 
   const unsigned char
    Parser ::yyr2_[] =
   {
-       0,     2,     0,     4,     2
+       0,     2,     0,     4,     0,     4,     2,     3
   };
 
 
@@ -929,15 +1004,15 @@ namespace yy {
   const char*
   const  Parser ::yytname_[] =
   {
-  "$end", "error", "$undefined", "NL", "END", "NUMBER", "$accept",
-  "programme", "$@1", YY_NULLPTR
+  "$end", "error", "$undefined", "NL", "END", "OP", "NUMBER", "$accept",
+  "programme", "$@1", "$@2", "operation", YY_NULLPTR
   };
 
 
   const unsigned char
    Parser ::yyrline_[] =
   {
-       0,    38,    38,    38,    41
+       0,    39,    39,    39,    42,    42,    45,    49
   };
 
   // Print the state stack on the debug stream.
@@ -1004,9 +1079,9 @@ namespace yy {
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5
+       5,     6
     };
-    const unsigned int user_token_number_max_ = 260;
+    const unsigned int user_token_number_max_ = 261;
     const token_number_type undef_token_ = 2;
 
     if (static_cast<int>(t) <= yyeof_)
@@ -1019,8 +1094,8 @@ namespace yy {
 
 
 } // yy
-#line 1023 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp" // lalr1.cc:1167
-#line 45 "parser.yy" // lalr1.cc:1168
+#line 1098 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp" // lalr1.cc:1167
+#line 61 "calculatrice1.2.yy" // lalr1.cc:1168
 
 
 void yy::Parser::error( const location_type &l, const std::string & err_msg) {
