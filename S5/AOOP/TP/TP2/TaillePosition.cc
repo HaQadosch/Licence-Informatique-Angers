@@ -4,31 +4,31 @@
  */
 
 
-/***********************************************************TAILLE***************************************************/
+/***********************************************************Taille***************************************************/
 /*constructeurs*/
-taille::taille(coordonnee largeur, coordonnee hauteur){
+Taille::Taille(coordonnee largeur, coordonnee hauteur){
   largeur=largeur;
   hauteur=hauteur;
 }
-/***********************************************************POSITION***************************************************/
+/***********************************************************Position***************************************************/
 /* constructeurs */
-position::position(position const & pos){
+Position::Position(Position const & pos){
   x=pos.x;
   y=pos.y;
 }
 
-position::position(coordonnee x,coordonnee y){
+Position::Position(coordonnee x,coordonnee y){
   x=x;
   y=y;
 }
 
 /**
- * \brief Comparaison compare si la position est identique à test
- * \param test position testée
- * \return true si les deux positions sont identiques
- * \return false si les deux positions ne le sont pas
+ * \brief Comparaison compare si la Position est identique à test
+ * \param test Position testée
+ * \return true si les deux Positions sont identiques
+ * \return false si les deux Positions ne le sont pas
  */
-bool position::comparaison(position test) const {
+bool Position::comparaison(Position test) const {
   if((test.getX()!=x) || (test.getY()!=y)) return false;
   return true;
 }

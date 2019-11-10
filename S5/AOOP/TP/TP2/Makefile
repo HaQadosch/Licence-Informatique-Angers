@@ -1,6 +1,6 @@
 FAGS = -Wall -std=c++14
 BOSS = main.cc
-MINIONS = TaillePosition.cc sequence.cc
+MINIONS = TaillePosition.cc Sequence.cc
 WORKER = exe
 
 main: $(BOSS) $(MINIONS)

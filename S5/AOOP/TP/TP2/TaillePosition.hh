@@ -5,15 +5,15 @@
 
 typedef int coordonnee;
 
-class position{
+class Position{
   public:
     /*fonctions*/
-    bool comparaison(position test) const;
+    bool comparaison(Position test) const;
 
     /*constructeurs*/
-    position(position const & pos); // par recopie
-    position(coordonnee x, coordonnee y);//avec paramètre
-    position();//vide
+    Position(Position const & pos); // par recopie
+    Position(coordonnee x, coordonnee y);//avec paramètre
+    Position();//vide
 
     /*setters & getters*/
     coordonnee getX() const {return x;}
@@ -27,13 +27,13 @@ class position{
 
 };
 
-class taille{
+class Taille{
   public:
     /*fonctions*/
 
     /*constructeurs*/
-    taille(coordonnee largeur, coordonnee hauteur); // avec paramètre
-    taille(); // vide
+    Taille(coordonnee largeur, coordonnee hauteur); // avec paramètre
+    Taille(); // vide
 
     /*setters & getters*/
     coordonnee getLargeur() const {return largeur;}

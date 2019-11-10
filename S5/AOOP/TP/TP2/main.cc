@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "TaillePosition.hh"
-#include "sequence.hh"
+#include "Sequence.hh"
 
 /** \author BRINON Baptiste
  * Ceci n'est pas la correction du TP, mais une résolution possible de celui-ci
@@ -18,21 +18,21 @@ int main(int argc,char * argv[]){
       case(1): { // Partie 1 du TP
         Position pos1(22,05);
         Position pos2(pos1);
-        if(pos2.Comparaison(pos1)){
+        if(pos2.comparaison(pos1)){
           std::cout<<"nice, sucess, ça marche!"<<std::endl;
         }
         break;}
 
       case(2):{ // partie 2 du TP
-
-        sequence a;
+        Sequence a;
       	a.ajouter(couleur::rouge);
       	a.ajouter(couleur::bleu);
       	a.ajouter(couleur::rouge);
       	a.ajouter(couleur::vert);
-      	sequence b(a); // voir question 3
+        // constructeur par copie me segfault ce batard
+      	Sequence b(a); // voir question 3
       	a.afficher(a.acces(0)); std::cout << "\n";
-      	for (indicesequence i=0; i<a.taille(); ++i)
+/*      	for (indiceSequence i=0; i<a.Taille(); ++i)
       		a.afficher(a.acces(i));
       	std::cout << "\n";
       	a.vider();
@@ -41,7 +41,7 @@ int main(int argc,char * argv[]){
       	std::cout << a.comparer(b) << "\n";
       	a.copier(b); // voir question 5
       	std::cout << a.comparer(b) << "\n";
-
+*/
         break;}
 
       case(3):{ // partie 3 du TP
