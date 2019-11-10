@@ -34,40 +34,11 @@ void testEnsemble(Ensemble & e1, Ensemble & e2, Ensemble & e3){
 }
 
 
-int main(int argc,char * argv[]){
-  //en fonction du num d'exercice, on change l'execution
-  if(argc!=2){
-      std::cout<<"utilisation:"<<std::endl;
-      std::cout<<"./exe [numero de la partie du TP à tester]"<<std::endl;
-  }else{
-    switch(std::stoi(argv[1])){
-
-      case(1): { // Partie 1 du TP
-        std::ostringstream out;
-        int entier(42);
-        out << entier; // fonctionne avec tout type pouvant être envoyé sur flux
-        std::string s(out.str());
-        std::cout << s << std::endl;
-        return 0;
-        break;}
-
-      case(2):{ // partie 2 du TP
-        break;}
-
-      case(3):{ // partie 3 du TP
-        EnsembleVector ev1, ev2, ev3;
-        testEnsemble(ev1, ev2, ev3);
-      /*  ensembleTableau et1;
-        testEnsemble(ev1, ev2, et1);*/
-        break;}
-
-      case(4):{ // partie 4 du TP
-        break;}
-
-      default:{ // cas erreur
-        std::cout<<"entrez le numero d'un exercice existant"<<std::endl;
-        break;}
-    }//fin switch-case
-  }//fin else
+int main(){
+// partie 3 du TP
+  EnsembleVector ev1, ev2, ev3;
+  testEnsemble(ev1, ev2, ev3);
+/*EnsembleTableau et1;
+testEnsemble(ev1, ev2, et1);*/
   return 0;
 }
