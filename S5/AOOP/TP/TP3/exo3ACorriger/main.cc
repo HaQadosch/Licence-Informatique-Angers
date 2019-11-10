@@ -2,13 +2,11 @@
 #include <string>
 #include <sstream>
 //#include "EnsembleTableau.hh"
-//#include "EnsembleVector.hh"
-
+#include "EnsembleVector.hh"
 /** \author BRINON Baptiste
  * Ceci n'est pas la correction du TP, mais une résolution possible de celui-ci
  */
 
-/*
 void testEnsemble(Ensemble & e1, Ensemble & e2, Ensemble & e3){
   std::cout << "1. 0->" << e1.appartient(12) << std::endl;
   std::cout << "2. 1->" << e1.estVide() << std::endl;
@@ -34,7 +32,7 @@ void testEnsemble(Ensemble & e1, Ensemble & e2, Ensemble & e3){
   e3.calculerDifference(e1,e2);
   std::cout <<"9.6->"; e3.afficher();
 }
-*/
+
 
 int main(int argc,char * argv[]){
   //en fonction du num d'exercice, on change l'execution
@@ -57,7 +55,6 @@ int main(int argc,char * argv[]){
         break;}
 
       case(3):{ // partie 3 du TP
-	/*
         EnsembleVector ev1, ev2, ev3;
         testEnsemble(ev1, ev2, ev3);
       /*  ensembleTableau et1;
