@@ -69,7 +69,7 @@ bool EnsembleTableau::estFini(parcours const & p) const{
 }
 
 int EnsembleTableau::acces(parcours const & p) const{
-
+  return elem[p.position()];
 }
 
 void vider(){

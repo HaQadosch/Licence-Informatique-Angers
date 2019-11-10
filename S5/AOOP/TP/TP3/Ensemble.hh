@@ -1,16 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <cstddef>
 
 class Parcours{
   public:
     Parcours()
-      :pos(0) ();
-    std:size_t position() const{
-      return pos;
-    }
-    void suivant(){
-      pos++;
-    }
+      :pos(0){};
+    std::size_t position() const{return pos;}
+    void suivant(){pos++;}
+
   private:
     std::size_t pos;
 
@@ -31,15 +29,15 @@ class Ensemble{
     void afficher() const;
     virtual void enlever(int e) =0;
 
-    virtual parcours commencer() const;
-    virtual bool estFini(parcours const & p) const;
-    virtual void suivant(parcours & p) const;
-    virtual int acces(parcours const & p) const;
+    virtual Parcours commencer() const;
+    virtual bool estFini(Parcours const & p) const;
+    virtual void suivant(Parcours & p) const;
+    virtual int acces(Parcours const & p) const;
     virtual void vider() =0;
-    void calculerUnion(ensemble const & e1, ensemble const & e2);
+    void calculerUnion(Ensemble const & e1, Ensemble const & e2);
     // e3.calculerUnion(e1,e2);
-    void calculerIntersetion(ensemble const & e1, ensemble const & e2);
-    void calculerDifference(ensemble const & e1, ensemble const & e2);
+    void calculerIntersetion(Ensemble const & e1, Ensemble const & e2);
+    void calculerDifference(Ensemble const & e1, Ensemble const & e2);
     //static void calculerEnsemble(ensemble const & e1, ensemble const &e2, ensemble & result);
     //ensemble::calculerEnsemble(e1,e2,e3);
 

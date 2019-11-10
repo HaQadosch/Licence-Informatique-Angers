@@ -1,6 +1,5 @@
 #pragma once
 #include "Ensemble.hh"
-#include <cstddef>
 
 class EnsembleTableau: public Ensemble{
   public:

@@ -1,5 +1,5 @@
 #include "sequence.hh"
-//#include "sequence2.hh"
+//#include "sequence2.hh" // pense bien à modifier le makefile aussi.
 #include "part2.hh"
 #include <iostream>
 /** @author BRINON Baptiste
@@ -11,7 +11,7 @@ int main(int argc,char * argv[]){
   //en fonction du num d'exercice, on change l'execution
   if(argc!=2){// en cas d'utilisation incorrecte
       std::cout<<"utilisation:"<<std::endl;
-      std::cout<<"./nomprog [numero de la partie du TP à tester]"<<std::endl;
+      std::cout<<"./exe [numero de la partie du TP à tester]"<<std::endl;
   }else{ // execution normale
     switch(std::stoi(argv[1])){
 

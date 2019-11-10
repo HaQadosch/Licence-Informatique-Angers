@@ -1,5 +1,6 @@
 #include "EnsembleVector.hh"
 #include <iostream>
+#include <cstddef>
 #include <algorithm>
 /** \author BRINON Baptiste
  * Ceci n'est pas la correction du TP, mais une résolution possible de celui-ci
@@ -54,6 +55,6 @@ int EnsembleVector::acces(parcours const & p) const{
   return elem[p.position()];
 }
 
-void ensembleVector::vider(){
-  contenu.clear();
+void EnsembleVector::vider(){
+  elem.clear();
 }
