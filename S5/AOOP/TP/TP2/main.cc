@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <vector>
 #include "TaillePosition.hh"
-#include "Sequence.hh"
+#include "vSequence.hh"
 #include "vectrois.hh"
 
 /** \author BRINON Baptiste
@@ -25,7 +25,8 @@ int main(int argc,char * argv[]){
                 }
             break;}
 
-            case(2):{ // partie 2 du TP
+            case(2):// partie 2 du TP, même execution que le 4
+			case(4):{  //partie 4 du TP
                 Sequence a;
       	        a.ajouter(couleur::rouge);
       	        a.ajouter(couleur::bleu);
@@ -78,9 +79,6 @@ int main(int argc,char * argv[]){
 				for (auto i(vTrois.begin());i!=vTrois.end(); i++) std::cout <<*i<<" ";
 				std::cout<<"?"<<std::endl<<"laissez-moi deviner. Son plus grand nombre est "<<vMax(vTrois)<<std::endl;
 		    break;}
-
-      		case(4):{ // partie 4 du TP
-        	break;}
 
       		default:{ // cas erreur
         		std::cout<<"entrez le numero d'un exercice existant"<<std::endl;

@@ -1,5 +1,7 @@
 #pragma once
 #include <array>
+#include <vector>
+
 enum class couleur{
     rouge,
     bleu,
@@ -20,13 +22,13 @@ class Sequence{
     bool comparer(Sequence & s);
     void copier(Sequence & s);
     /*constructeurs & destructeur*/
-    Sequence():couleurs(nullptr),taille(0){};
+    Sequence()=default;
     Sequence(Sequence &s);
     ~Sequence();
     /*setters & getters*/
-    indiceSequence getTaille() const {return taille;}
+    indiceSequence getTaille() const {return couleurs.size();}
+	std::vector<couleur> getCouleurs() const {return couleurs;}
   private:
     /*variables*/
-    couleur * couleurs;
-    indiceSequence taille;
+    std::vector<couleur> couleurs;
 };
