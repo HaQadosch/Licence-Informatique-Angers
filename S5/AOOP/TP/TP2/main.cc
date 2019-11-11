@@ -29,10 +29,9 @@ int main(int argc,char * argv[]){
       	a.ajouter(couleur::bleu);
       	a.ajouter(couleur::rouge);
       	a.ajouter(couleur::vert);
-        // constructeur par copie me segfault ce batard
-      	Sequence b(a); // voir question 3
+        Sequence b(a); // voir question 3
       	a.afficher(a.acces(0)); std::cout << "\n";
-/*      	for (indiceSequence i=0; i<a.Taille(); ++i)
+      	for (indiceSequence i=0; i<a.getTaille(); ++i)
       		a.afficher(a.acces(i));
       	std::cout << "\n";
       	a.vider();
@@ -41,7 +40,6 @@ int main(int argc,char * argv[]){
       	std::cout << a.comparer(b) << "\n";
       	a.copier(b); // voir question 5
       	std::cout << a.comparer(b) << "\n";
-*/
         break;}
 
       case(3):{ // partie 3 du TP
