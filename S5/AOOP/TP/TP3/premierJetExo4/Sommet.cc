@@ -2,11 +2,11 @@
 
 identifiant Sommet::compteur(0);
 
-Sommet::Sommet(std::string const & et)
-    :id(++compteur),etiquette(et){
+Sommet::Sommet(std::string const & et):
+	id(++compteur),etiquette(et){
 }
 
-void Sommet::ajouterArc(identifiant etc, std::string const & etiq){
+void Sommet::ajouterArc(identifiant ext, std::string const & etiq){
   std::list<arcSortant>::iterator it=arcs.begin();
   while(it!=arcs.end() && ((*it).extremite != ext))
     ++it;
@@ -17,9 +17,8 @@ void Sommet::ajouterArc(identifiant etc, std::string const & etiq){
   }
 }
 
-
-void supprimerArc(identifiant ext){
-  std::list<arcSortant>::iterator it=arcs.begin();
+void Sommet::supprimerArc(identifiant ext){
+  std::list<arcSortant>::iterator it = arcs.begin();
   while(it!=arcs.end() && ((*it).extremite != ext))
     ++it;
   if(it != arcs.end())

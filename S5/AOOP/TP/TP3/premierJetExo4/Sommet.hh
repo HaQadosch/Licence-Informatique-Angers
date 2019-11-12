@@ -16,8 +16,8 @@ class Sommet{
     Sommet(std::string const & et);
 
     /*setters & getters*/
-    identifiant id() const {return id;}
-    std::string const &etiquette() const {return etiquette;}
+    identifiant getId() const {return id;}
+    std::string const & getEtiquette() const {return etiquette;}
 
   private:
     /*variables*/
