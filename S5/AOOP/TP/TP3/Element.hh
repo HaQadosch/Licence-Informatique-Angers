@@ -49,7 +49,7 @@ class Personnage:public Element{
       nbPoints += o.nbPoints();
     }
     std::string toString() const{
-      return element::tostring()+"-"+nom+"-"+std::string(nbPoints);
+      return Element::tostring()+"-"+nom+"-"+std::string(nbPoints);
     }
 
     /*constructeurs*/
