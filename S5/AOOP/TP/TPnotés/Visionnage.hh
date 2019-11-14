@@ -54,7 +54,7 @@ class Serie:public Visionnage{
 
 };
 
-
+/*
 class Saga:public Film{
 	public:
 		//constructeur
@@ -72,3 +72,4 @@ class Saga:public Film{
 		std::string nom,realis;
 
 };
+*/
