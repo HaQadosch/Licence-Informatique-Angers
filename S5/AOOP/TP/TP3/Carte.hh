@@ -21,8 +21,7 @@ class Carte{
 		void ajoutObstacle(Obstacle const &o){obsts.push_back(o);}
 		//méthodes
 		void afficherPersos()const;
-		bool croiseIntervale(Coordonnee const &x1, Coordonnee const &y1, Coordonnee const &x2, Coordonnee const &y2)const;
-
+		
 	private:
 		Taille taille;
 		std::list<Personnage> persos;

@@ -13,13 +13,13 @@ void Carte::afficherPersos()const{
 	}
 }
 
+//fonction
 //test effectué avec des intervalles de type inclus-exclus ( [x,y[)
-bool Carte::croiseIntervale(Coordonnee const &debx1, Coordonnee const &finx1, Coordonnee const &debx2, Coordonnee const &finx2)const{
+bool croiseIntervale(Coordonnee const &debx1, Coordonnee const &finx1, Coordonnee const &debx2, Coordonnee const &finx2)const{
 	//ils se croisent s'ils ne se croisent pas pas.
 	/*if(debx1<debx2&&finx1>debx2) return true;
 	if(debx1>=debx2&&debx1<finx2) return true;
 	return false; ->code long */
 	/*meilleur :*/
-	if(finx1<=debx2 || finx2<=debx1) return false;
-	return true;
+	return(!(finx1<=debx2 || finx2<=debx1));
 }
