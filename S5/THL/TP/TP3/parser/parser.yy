@@ -52,16 +52,15 @@ programme:
 
 instruction:
     expression  {
-        YYACCEPT;
     }
     | affectation {
-      YYACCEPT;
     }
 
 expression:
     operation {
         //Modifier cette partie pour prendre en compte la structure avec expressions
-        std::cout << "#-> " << $1 << std::endl;
+		Contexte C;
+		std::cout << "#-> " << $1->calculer(C) << std::endl;
     }
 
 affectation:
@@ -70,25 +69,25 @@ affectation:
 
 operation:
     NUMBER {
-        $$ = $1;
+        $$ = std::make_shared<Constante>($1);
     }
     | '(' operation ')' {
         $$ = $2;
     }
     | operation '+' operation {
-        $$ = $1 + $3;
+        $$ =std::make_shared<ExpressionBinaire>($1,$3, OperateurBinaire::plus); // 2 + x
     }
     | operation '-' operation {
-        $$ = $1 - $3;
+        $$ =std::make_shared<ExpressionBinaire>($1,$3, OperateurBinaire::moins);
     }
     | operation '*' operation {
-        $$ = $1 * $3;
+        $$ =std::make_shared<ExpressionBinaire>($1,$3, OperateurBinaire::multiplie);
     }
     | operation '/' operation {
-        $$ = $1 / $3;
+        $$ =std::make_shared<ExpressionBinaire>($1,$3, OperateurBinaire::divise);
     }
     | '-' operation %prec NEG {
-        $$ = - $2;
+        $$ =std::make_shared<ExpressionUnaire>($2, OperateurUnaire::neg);
     }
 
 %%

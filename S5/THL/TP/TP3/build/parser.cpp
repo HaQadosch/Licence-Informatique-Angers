@@ -53,7 +53,7 @@
 
     #include <iostream>
     #include <string>
-    
+
     #include "scanner.hh"
     #include "driver.hh"
 
@@ -189,9 +189,12 @@ namespace yy {
   {
       switch (other.type_get ())
     {
-      case 5: // NUMBER
       case 19: // operation
-        value.copy< int > (other.value);
+        value.copy< ExpressionPtr > (other.value);
+        break;
+
+      case 5: // NUMBER
+        value.copy< double > (other.value);
         break;
 
       default:
@@ -211,9 +214,12 @@ namespace yy {
     (void) v;
       switch (this->type_get ())
     {
-      case 5: // NUMBER
       case 19: // operation
-        value.copy< int > (v);
+        value.copy< ExpressionPtr > (v);
+        break;
+
+      case 5: // NUMBER
+        value.copy< double > (v);
         break;
 
       default:
@@ -232,7 +238,14 @@ namespace yy {
   {}
 
   template <typename Base>
-   Parser ::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const int v, const location_type& l)
+   Parser ::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const ExpressionPtr v, const location_type& l)
+    : Base (t)
+    , value (v)
+    , location (l)
+  {}
+
+  template <typename Base>
+   Parser ::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const double v, const location_type& l)
     : Base (t)
     , value (v)
     , location (l)
@@ -264,9 +277,12 @@ namespace yy {
     // Type destructor.
     switch (yytype)
     {
-      case 5: // NUMBER
       case 19: // operation
-        value.template destroy< int > ();
+        value.template destroy< ExpressionPtr > ();
+        break;
+
+      case 5: // NUMBER
+        value.template destroy< double > ();
         break;
 
       default:
@@ -292,9 +308,12 @@ namespace yy {
     super_type::move(s);
       switch (this->type_get ())
     {
-      case 5: // NUMBER
       case 19: // operation
-        value.move< int > (s.value);
+        value.move< ExpressionPtr > (s.value);
+        break;
+
+      case 5: // NUMBER
+        value.move< double > (s.value);
         break;
 
       default:
@@ -355,7 +374,7 @@ namespace yy {
   }
 
    Parser ::symbol_type
-   Parser ::make_NUMBER (const int& v, const location_type& l)
+   Parser ::make_NUMBER (const double& v, const location_type& l)
   {
     return symbol_type (token::NUMBER, v, l);
   }
@@ -420,9 +439,12 @@ namespace yy {
   {
       switch (that.type_get ())
     {
-      case 5: // NUMBER
       case 19: // operation
-        value.move< int > (that.value);
+        value.move< ExpressionPtr > (that.value);
+        break;
+
+      case 5: // NUMBER
+        value.move< double > (that.value);
         break;
 
       default:
@@ -440,9 +462,12 @@ namespace yy {
     state = that.state;
       switch (that.type_get ())
     {
-      case 5: // NUMBER
       case 19: // operation
-        value.copy< int > (that.value);
+        value.copy< ExpressionPtr > (that.value);
+        break;
+
+      case 5: // NUMBER
+        value.copy< double > (that.value);
         break;
 
       default:
@@ -672,9 +697,12 @@ namespace yy {
          when using variants.  */
         switch (yyr1_[yyn])
     {
-      case 5: // NUMBER
       case 19: // operation
-        yylhs.value.build< int > ();
+        yylhs.value.build< ExpressionPtr > ();
+        break;
+
+      case 5: // NUMBER
+        yylhs.value.build< double > ();
         break;
 
       default:
@@ -699,99 +727,98 @@ namespace yy {
     {
         YYACCEPT;
     }
-#line 703 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
+#line 731 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
     break;
 
   case 4:
 #line 54 "parser/parser.yy" // lalr1.cc:859
     {
-        YYACCEPT;
     }
-#line 711 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
+#line 738 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
     break;
 
   case 5:
-#line 57 "parser/parser.yy" // lalr1.cc:859
+#line 56 "parser/parser.yy" // lalr1.cc:859
     {
-      YYACCEPT;
     }
-#line 719 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
+#line 745 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
     break;
 
   case 6:
-#line 62 "parser/parser.yy" // lalr1.cc:859
+#line 60 "parser/parser.yy" // lalr1.cc:859
     {
         //Modifier cette partie pour prendre en compte la structure avec expressions
-        std::cout << "#-> " << yystack_[0].value.as< int > () << std::endl;
+		Contexte C;
+		std::cout << "#-> " << yystack_[0].value.as< ExpressionPtr > ()->calculer(C) << std::endl;
     }
-#line 728 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
+#line 755 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
     break;
 
   case 7:
-#line 68 "parser/parser.yy" // lalr1.cc:859
+#line 67 "parser/parser.yy" // lalr1.cc:859
     { std::cout << "Affectation à réaliser" << std::endl;
     }
-#line 735 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
+#line 762 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
     break;
 
   case 8:
-#line 72 "parser/parser.yy" // lalr1.cc:859
+#line 71 "parser/parser.yy" // lalr1.cc:859
     {
-        yylhs.value.as< int > () = yystack_[0].value.as< int > ();
+        yylhs.value.as< ExpressionPtr > () = std::make_shared<Constante>(yystack_[0].value.as< double > ());
     }
-#line 743 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
+#line 770 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
     break;
 
   case 9:
-#line 75 "parser/parser.yy" // lalr1.cc:859
+#line 74 "parser/parser.yy" // lalr1.cc:859
     {
-        yylhs.value.as< int > () = yystack_[1].value.as< int > ();
+        yylhs.value.as< ExpressionPtr > () = yystack_[1].value.as< ExpressionPtr > ();
     }
-#line 751 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
+#line 778 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
     break;
 
   case 10:
-#line 78 "parser/parser.yy" // lalr1.cc:859
+#line 77 "parser/parser.yy" // lalr1.cc:859
     {
-        yylhs.value.as< int > () = yystack_[2].value.as< int > () + yystack_[0].value.as< int > ();
+        yylhs.value.as< ExpressionPtr > () =std::make_shared<ExpressionBinaire>(yystack_[2].value.as< ExpressionPtr > (),yystack_[0].value.as< ExpressionPtr > (), OperateurBinaire::plus); // 2 + x
     }
-#line 759 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
+#line 786 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
     break;
 
   case 11:
-#line 81 "parser/parser.yy" // lalr1.cc:859
+#line 80 "parser/parser.yy" // lalr1.cc:859
     {
-        yylhs.value.as< int > () = yystack_[2].value.as< int > () - yystack_[0].value.as< int > ();
+        yylhs.value.as< ExpressionPtr > () =std::make_shared<ExpressionBinaire>(yystack_[2].value.as< ExpressionPtr > (),yystack_[0].value.as< ExpressionPtr > (), OperateurBinaire::moins);
     }
-#line 767 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
+#line 794 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
     break;
 
   case 12:
-#line 84 "parser/parser.yy" // lalr1.cc:859
+#line 83 "parser/parser.yy" // lalr1.cc:859
     {
-        yylhs.value.as< int > () = yystack_[2].value.as< int > () * yystack_[0].value.as< int > ();
+        yylhs.value.as< ExpressionPtr > () =std::make_shared<ExpressionBinaire>(yystack_[2].value.as< ExpressionPtr > (),yystack_[0].value.as< ExpressionPtr > (), OperateurBinaire::multiplie);
     }
-#line 775 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
+#line 802 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
     break;
 
   case 13:
-#line 87 "parser/parser.yy" // lalr1.cc:859
+#line 86 "parser/parser.yy" // lalr1.cc:859
     {
-        yylhs.value.as< int > () = yystack_[2].value.as< int > () / yystack_[0].value.as< int > ();
+        yylhs.value.as< ExpressionPtr > () =std::make_shared<ExpressionBinaire>(yystack_[2].value.as< ExpressionPtr > (),yystack_[0].value.as< ExpressionPtr > (), OperateurBinaire::divise);
     }
-#line 783 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
+#line 810 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
     break;
 
   case 14:
-#line 90 "parser/parser.yy" // lalr1.cc:859
+#line 89 "parser/parser.yy" // lalr1.cc:859
     {
-        yylhs.value.as< int > () = - yystack_[0].value.as< int > ();
+        yylhs.value.as< ExpressionPtr > () =std::make_shared<ExpressionUnaire>(yystack_[0].value.as< ExpressionPtr > (), OperateurUnaire::neg);
     }
-#line 791 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
+#line 818 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
     break;
 
 
-#line 795 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
+#line 822 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:859
             default:
               break;
             }
@@ -1043,8 +1070,8 @@ namespace yy {
   const unsigned char
    Parser ::yyrline_[] =
   {
-       0,    48,    48,    49,    54,    57,    62,    68,    72,    75,
-      78,    81,    84,    87,    90
+       0,    48,    48,    49,    54,    56,    60,    67,    71,    74,
+      77,    80,    83,    86,    89
   };
 
   // Print the state stack on the debug stream.
@@ -1126,8 +1153,8 @@ namespace yy {
 
 
 } // yy
-#line 1130 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:1167
-#line 94 "parser/parser.yy" // lalr1.cc:1168
+#line 1157 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.cpp" // lalr1.cc:1167
+#line 93 "parser/parser.yy" // lalr1.cc:1168
 
 
 void yy::Parser::error( const location_type &l, const std::string & err_msg) {

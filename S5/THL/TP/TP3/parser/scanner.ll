@@ -33,8 +33,8 @@ fin return token::END;
 ")" return ')';
 "=" return '=';
 
-[0-9]+      {
-    yylval->build<int>(std::atoi(YYText()));
+[0-9]+(\.[0-9]+)?      {
+    yylval->build<double>(std::atof(YYText()));
     return token::NUMBER;
 }
 

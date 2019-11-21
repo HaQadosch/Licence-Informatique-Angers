@@ -295,9 +295,11 @@ namespace yy {
     /// An auxiliary type to compute the largest semantic type.
     union union_type
     {
-      // NUMBER
       // operation
-      char dummy1[sizeof(int)];
+      char dummy1[sizeof(ExpressionPtr)];
+
+      // NUMBER
+      char dummy2[sizeof(double)];
 };
 
     /// Symbol semantic values.
@@ -361,7 +363,9 @@ namespace yy {
 
   basic_symbol (typename Base::kind_type t, const location_type& l);
 
-  basic_symbol (typename Base::kind_type t, const int v, const location_type& l);
+  basic_symbol (typename Base::kind_type t, const ExpressionPtr v, const location_type& l);
+
+  basic_symbol (typename Base::kind_type t, const double v, const location_type& l);
 
 
       /// Constructor for symbols with semantic value.
@@ -440,7 +444,7 @@ namespace yy {
 
     static inline
     symbol_type
-    make_NUMBER (const int& v, const location_type& l);
+    make_NUMBER (const double& v, const location_type& l);
 
     static inline
     symbol_type
@@ -665,7 +669,7 @@ namespace yy {
 
 
 } // yy
-#line 669 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.hpp" // lalr1.cc:377
+#line 673 "/home/baptiste/Documents/université/S5/THL/TP/TP3/build/parser.hpp" // lalr1.cc:377
 
 
 
