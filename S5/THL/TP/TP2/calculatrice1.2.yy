@@ -9,6 +9,12 @@
 %locations
 
 %code requires{
+    #include "contexte.hh"
+    #include "expressionBinaire.hh"
+    #include "expressionUnaire.hh"
+    #include "constante.hh"
+    #include "variable.hh"
+
     class Scanner;
     class Driver;
 }
@@ -29,34 +35,61 @@
 
 %token                  NL
 %token                  END
-%token <char>           OP
 %token <int>            NUMBER
+
 %type <int>             operation
+%left '-' '+'
+%left '*' '/'
+%precedence  NEG
 
 %%
 
 programme:
-    NUMBER NL {
-        std::cout << "nombre : " << $1 << std::endl;
-    } programme
-    |operation NL{
-      std::cout << "operation : " << $1 << std::endl;
-    } programme
+    instruction NL programme
     | END NL {
         YYACCEPT;
     }
-operation:
-  NUMBER OP NUMBER{
 
-    switch($2){
-      case("+") : $$ = $1 + $3; break;
-      case("-") : $$ = $1 + $3; break;
-      case("*") : $$ = $1 + $3; break;
-      case("/") : $$ = $1 + $3; break;
-      default : break;
+instruction:
+    expression  {
+        YYACCEPT;
+    }
+    | affectation {
+      YYACCEPT;
     }
 
-  }
+expression:
+    operation {
+        //Modifier cette partie pour prendre en compte la structure avec expressions
+        std::cout << "#-> " << $1 << std::endl;
+    }
+
+affectation:
+    '=' { std::cout << "Affectation à réaliser" << std::endl;
+    }
+
+operation:
+    NUMBER {
+        $$ = $1;
+    }
+    | '(' operation ')' {
+        $$ = $2;
+    }
+    | operation '+' operation {
+        $$ = $1 + $3;
+    }
+    | operation '-' operation {
+        $$ = $1 - $3;
+    }
+    | operation '*' operation {
+        $$ = $1 * $3;
+    }
+    | operation '/' operation {
+        $$ = $1 / $3;
+    }
+    | '-' operation %prec NEG {
+        $$ = - $2;
+    }
 
 %%
 

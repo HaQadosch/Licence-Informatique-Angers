@@ -290,10 +290,10 @@ namespace yy {
     union union_type
     {
       // OP
+      // operation
       char dummy1[sizeof(char)];
 
       // NUMBER
-      // operation
       char dummy2[sizeof(int)];
 };
 

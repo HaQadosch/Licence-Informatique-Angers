@@ -20,22 +20,22 @@ using token = yy::Parser::token;
 %option noyywrap
 
 %%
-
 %{
     yylval = lval;
 %}
-
-
 fin return token::END;
-[ ]+ ;
-[0-9]+      {
-    yylval->build<int>(std::atoi(yytext));
-    return token::NUMBER;
-}
 
-[\+|\-|\*|\/] {
-  yylval->build<char>(yytext);
-  return token::OP;
+"+" return '+';
+"*" return '*';
+"-" return '-';
+"/" return '/';
+"(" return '(';
+")" return ')';
+"=" return '=';
+
+[0-9]+      {
+    yylval->build<int>(std::atoi(YYText()));
+    return token::NUMBER;
 }
 
 "\n"          {

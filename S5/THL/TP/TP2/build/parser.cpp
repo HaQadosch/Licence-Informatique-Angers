@@ -190,11 +190,11 @@ namespace yy {
       switch (other.type_get ())
     {
       case 5: // OP
+      case 11: // operation
         value.copy< char > (other.value);
         break;
 
       case 6: // NUMBER
-      case 11: // operation
         value.copy< int > (other.value);
         break;
 
@@ -216,11 +216,11 @@ namespace yy {
       switch (this->type_get ())
     {
       case 5: // OP
+      case 11: // operation
         value.copy< char > (v);
         break;
 
       case 6: // NUMBER
-      case 11: // operation
         value.copy< int > (v);
         break;
 
@@ -280,11 +280,11 @@ namespace yy {
     switch (yytype)
     {
       case 5: // OP
+      case 11: // operation
         value.template destroy< char > ();
         break;
 
       case 6: // NUMBER
-      case 11: // operation
         value.template destroy< int > ();
         break;
 
@@ -312,11 +312,11 @@ namespace yy {
       switch (this->type_get ())
     {
       case 5: // OP
+      case 11: // operation
         value.move< char > (s.value);
         break;
 
       case 6: // NUMBER
-      case 11: // operation
         value.move< int > (s.value);
         break;
 
@@ -444,11 +444,11 @@ namespace yy {
       switch (that.type_get ())
     {
       case 5: // OP
+      case 11: // operation
         value.move< char > (that.value);
         break;
 
       case 6: // NUMBER
-      case 11: // operation
         value.move< int > (that.value);
         break;
 
@@ -468,11 +468,11 @@ namespace yy {
       switch (that.type_get ())
     {
       case 5: // OP
+      case 11: // operation
         value.copy< char > (that.value);
         break;
 
       case 6: // NUMBER
-      case 11: // operation
         value.copy< int > (that.value);
         break;
 
@@ -704,11 +704,11 @@ namespace yy {
         switch (yyr1_[yyn])
     {
       case 5: // OP
+      case 11: // operation
         yylhs.value.build< char > ();
         break;
 
       case 6: // NUMBER
-      case 11: // operation
         yylhs.value.build< int > ();
         break;
 
@@ -740,7 +740,7 @@ namespace yy {
   case 4:
 #line 42 "calculatrice1.2.yy" // lalr1.cc:859
     {
-      std::cout << "operation : " << yystack_[1].value.as< int > () << std::endl;
+      std::cout << "operation : " << yystack_[1].value.as< char > () << std::endl;
     }
 #line 746 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.cpp" // lalr1.cc:859
     break;
@@ -758,10 +758,10 @@ namespace yy {
     {
 
     switch(yystack_[1].value.as< char > ()){
-      case("+") : yylhs.value.as< int > () = yystack_[2].value.as< int > () + yystack_[0].value.as< int > (); break;
-      case("-") : yylhs.value.as< int > () = yystack_[2].value.as< int > () + yystack_[0].value.as< int > (); break;
-      case("*") : yylhs.value.as< int > () = yystack_[2].value.as< int > () + yystack_[0].value.as< int > (); break;
-      case("/") : yylhs.value.as< int > () = yystack_[2].value.as< int > () + yystack_[0].value.as< int > (); break;
+      case('+') : yylhs.value.as< char > () = yystack_[2].value.as< int > () + yystack_[0].value.as< int > (); break;
+      case('-') : yylhs.value.as< char > () = yystack_[2].value.as< int > () - yystack_[0].value.as< int > (); break;
+      case('*') : yylhs.value.as< char > () = yystack_[2].value.as< int > () * yystack_[0].value.as< int > (); break;
+      case('/') : yylhs.value.as< char > () = yystack_[2].value.as< int > () / yystack_[0].value.as< int > (); break;
       default : break;
     }
 

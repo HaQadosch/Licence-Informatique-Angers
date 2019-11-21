@@ -429,7 +429,6 @@ static yyconst flex_int16_t yy_chk[25] =
 #define YY_RESTORE_YY_MORE_OFFSET
 #line 1 "calculatrice1.2.ll"
 #line 2 "calculatrice1.2.ll"
-
 #include "scanner.hh"
 #include <cstdlib>
 
@@ -443,7 +442,7 @@ using token = yy::Parser::token;
 /* update location on matching */
 #define YY_USER_ACTION loc->step(); loc->columns(yyleng);
 
-#line 447 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/scanner.cpp"
+#line 446 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/scanner.cpp"
 
 #define INITIAL 0
 
@@ -575,7 +574,7 @@ YY_DECL
 		}
 
 	{
-#line 22 "calculatrice1.2.ll"
+#line 21 "calculatrice1.2.ll"
 
 
 
@@ -583,7 +582,7 @@ YY_DECL
 
 
 
-#line 587 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/scanner.cpp"
+#line 586 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/scanner.cpp"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -642,17 +641,17 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 29 "calculatrice1.2.ll"
+#line 28 "calculatrice1.2.ll"
 return token::END;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 30 "calculatrice1.2.ll"
+#line 29 "calculatrice1.2.ll"
 ;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 31 "calculatrice1.2.ll"
+#line 30 "calculatrice1.2.ll"
 {
     yylval->build<int>(std::atoi(yytext));
     return token::NUMBER;
@@ -660,7 +659,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 36 "calculatrice1.2.ll"
+#line 35 "calculatrice1.2.ll"
 {
   yylval->build<char>(yytext);
   return token::OP;
@@ -669,7 +668,7 @@ YY_RULE_SETUP
 case 5:
 /* rule 5 can match eol */
 YY_RULE_SETUP
-#line 41 "calculatrice1.2.ll"
+#line 40 "calculatrice1.2.ll"
 {
     loc->lines();
     return token::NL;
@@ -677,10 +676,10 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 46 "calculatrice1.2.ll"
+#line 45 "calculatrice1.2.ll"
 ECHO;
 	YY_BREAK
-#line 684 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/scanner.cpp"
+#line 683 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/scanner.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1635,7 +1634,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 46 "calculatrice1.2.ll"
+#line 45 "calculatrice1.2.ll"
 
 
 

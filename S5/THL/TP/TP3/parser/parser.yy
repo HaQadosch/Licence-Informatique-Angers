@@ -25,7 +25,7 @@
 %code{
     #include <iostream>
     #include <string>
-    
+
     #include "scanner.hh"
     #include "driver.hh"
 
@@ -35,9 +35,9 @@
 
 %token                  NL
 %token                  END
-%token <int>            NUMBER
+%token <double>      	NUMBER
 
-%type <int>             operation
+%type <ExpressionPtr>	operation
 %left '-' '+'
 %left '*' '/'
 %precedence  NEG
