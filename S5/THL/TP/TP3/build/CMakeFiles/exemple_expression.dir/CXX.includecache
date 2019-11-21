@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../expressions/constante.hh
+expression.hh
+../expressions/expression.hh
+
+../expressions/contexte.hh
+string
+-
+map
+-
+
+../expressions/expression.hh
+memory
+-
+contexte.hh
+../expressions/contexte.hh
+
+../expressions/expressionBinaire.hh
+expression.hh
+../expressions/expression.hh
+
+../expressions/variable.hh
+string
+-
+expression.hh
+../expressions/expression.hh
+
+/home/baptiste/Documents/université/S5/THL/TP/TP3/exemple_expression/main.cc
+contexte.hh
+/home/baptiste/Documents/université/S5/THL/TP/TP3/exemple_expression/contexte.hh
+expressionBinaire.hh
+/home/baptiste/Documents/université/S5/THL/TP/TP3/exemple_expression/expressionBinaire.hh
+constante.hh
+/home/baptiste/Documents/université/S5/THL/TP/TP3/exemple_expression/constante.hh
+variable.hh
+/home/baptiste/Documents/université/S5/THL/TP/TP3/exemple_expression/variable.hh
+iostream
+-
+
