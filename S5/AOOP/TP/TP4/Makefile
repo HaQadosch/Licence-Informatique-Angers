@@ -1,6 +1,6 @@
 FAGS = -Wall -std=c++14
 BOSS = main.cc
-MINIONS = Echecs.cc
+MINIONS = Document.cc Biblio.cc
 WORKER = exe
 
 main: $(BOSS) $(MINIONS)
