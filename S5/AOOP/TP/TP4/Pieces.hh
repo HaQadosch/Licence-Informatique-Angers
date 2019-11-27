@@ -15,6 +15,7 @@ class Piece{
 		Couleur getCoul() const {return coul;}
 		Position const & getPos() const {return pos;}
 		std::string toString() const;
+		bool accepterPosition(Position const & p)const;
 	private:
 		Position pos;
 		Couleur coul;

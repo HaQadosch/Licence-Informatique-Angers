@@ -45,17 +45,23 @@ std::vector<Position> Pion::deplacementsPossibles() const{
 
 std::vector<Position> Cavalier::deplacementsPossibles() const{
 	std::vector<Position> res;
-	//avant d'ajouter la position, on verifie que la piece n'est pas hors de l'echiquier
-	if(p.estValide())
-		res.push_back(p);
+	Position posActuelle(getPos());
+	//déplacement du cavalier en "2cases puis 1"
+	for (coord a : {-2,2})
+		for (coord b : {-1, 1}){
+			//premier cas 2-1
+			Position p(posActuelle.getX()+a,posActuelle.getY()+b);
+			if(p.estValide()) res.push_back(p);	//avant d'ajouter la position, on verifie que la piece n'est pas hors de l'echiquier
+			//deuxieme cas 2-1
+			Position p(posActuelle.getX()+b,posActuelle.getY()+a);
+			if(p.estValide()) res.push_back(p);	//avant d'ajouter la position, on verifie que la piece n'est pas hors de l'echiquier
+		}
+
 	return res;
 }
 
 std::vector<Position> Dame::deplacementsPossibles() const{
 	std::vector<Position> res;
-	//avant d'ajouter la position, on verifie que la piece n'est pas hors de l'echiquier
-	if(p.estValide())
-		res.push_back(p);
 	return res;
 }
 
@@ -92,3 +98,15 @@ std::string Piece::toString() const {
 	os<<std::to_string(pos.getX())<<std::to_string(pos.getY());
 	return os.str();
 }
+
+
+bool Piece::accepterPosition(Position const &p)const{
+	auto dp=deplacementsPossibles();
+	return (std::find(dp.begin(),dp.end(), p)!= dp.end());
+
+}
+/*
+bool Piece::deplacer(){
+
+}
+*/
