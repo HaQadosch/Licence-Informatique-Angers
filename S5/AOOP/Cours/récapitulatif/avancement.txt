@@ -1,6 +1,6 @@
 chapitre 1: done
 chapitre 2: done
-chapitre 3: to do
+chapitre 3: done
 chapitre 4: to do
 chapitre 5: to do
 chapitre 6: to do
