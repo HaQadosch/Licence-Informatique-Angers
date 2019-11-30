@@ -1,7 +1,7 @@
 chapitre 1: done
 chapitre 2: done
 chapitre 3: done
-chapitre 4: to do
+chapitre 4: done
 chapitre 5: to do
 chapitre 6: to do
 chapitre 7: to do

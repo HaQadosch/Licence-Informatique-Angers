@@ -94,3 +94,7 @@
 	std::cin >> entreeClassique;
 	std::cout << sortieClassique;
 	//iostream peut-être modifié et transféré
+
+	//redefinition des operateurs >> et <<
+	std::ostream & operator <<(std::ostream & os, Classe const & c);
+	std::istream & operator >>(std::istream & os, Classe & c);
