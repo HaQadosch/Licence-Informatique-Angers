@@ -26,7 +26,7 @@ Calcul::Calcul():
 		connect(operande2, &QLineEdit::TextChanger, this, &calcul::oncliccalculer);
 		connect(operateur, &QComboBox::currentTextChanged,this,&calcul::oncliccalculer);
 }
-
+//bouton
 void calcul::oncliccalculer(){
 	//récupération des variables
 	float f1(0),f2(0),res(0);
