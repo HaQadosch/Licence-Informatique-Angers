@@ -42,10 +42,16 @@
 // //                    "%code requires" blocks.
 #line 11 "calculatrice1.2.yy" // lalr1.cc:377
 
+    #include "contexte.hh"
+    #include "expressionBinaire.hh"
+    #include "expressionUnaire.hh"
+    #include "constante.hh"
+    #include "variable.hh"
+
     class Scanner;
     class Driver;
 
-#line 49 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.hpp" // lalr1.cc:377
+#line 55 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.hpp" // lalr1.cc:377
 
 # include <cassert>
 # include <cstdlib> // std::abort
@@ -122,7 +128,7 @@
 
 
 namespace yy {
-#line 126 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.hpp" // lalr1.cc:377
+#line 132 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.hpp" // lalr1.cc:377
 
 
 
@@ -289,12 +295,9 @@ namespace yy {
     /// An auxiliary type to compute the largest semantic type.
     union union_type
     {
-      // OP
-      // operation
-      char dummy1[sizeof(char)];
-
       // NUMBER
-      char dummy2[sizeof(int)];
+      // operation
+      char dummy1[sizeof(int)];
 };
 
     /// Symbol semantic values.
@@ -319,8 +322,8 @@ namespace yy {
       {
         NL = 258,
         END = 259,
-        OP = 260,
-        NUMBER = 261
+        NUMBER = 260,
+        NEG = 261
       };
     };
 
@@ -357,8 +360,6 @@ namespace yy {
       /// Constructor for valueless symbols, and symbols from each type.
 
   basic_symbol (typename Base::kind_type t, const location_type& l);
-
-  basic_symbol (typename Base::kind_type t, const char v, const location_type& l);
 
   basic_symbol (typename Base::kind_type t, const int v, const location_type& l);
 
@@ -439,11 +440,11 @@ namespace yy {
 
     static inline
     symbol_type
-    make_OP (const char& v, const location_type& l);
+    make_NUMBER (const int& v, const location_type& l);
 
     static inline
     symbol_type
-    make_NUMBER (const int& v, const location_type& l);
+    make_NEG (const location_type& l);
 
 
     /// Build a parser object.
@@ -530,7 +531,7 @@ namespace yy {
   // number is the opposite.  If YYTABLE_NINF, syntax error.
   static const unsigned char yytable_[];
 
-  static const unsigned char yycheck_[];
+  static const signed char yycheck_[];
 
   // YYSTOS[STATE-NUM] -- The (internal number of the) accessing
   // symbol of state STATE-NUM.
@@ -647,12 +648,12 @@ namespace yy {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 9,     ///< Last index in yytable_.
-      yynnts_ = 5,  ///< Number of nonterminal symbols.
-      yyfinal_ = 8, ///< Termination state number.
+      yylast_ = 29,     ///< Last index in yytable_.
+      yynnts_ = 6,  ///< Number of nonterminal symbols.
+      yyfinal_ = 14, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 7  ///< Number of tokens.
+      yyntokens_ = 14  ///< Number of tokens.
     };
 
 
@@ -664,7 +665,7 @@ namespace yy {
 
 
 } // yy
-#line 668 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.hpp" // lalr1.cc:377
+#line 669 "/home/baptiste/Documents/université/S5/THL/TP/TP2/build/parser.hpp" // lalr1.cc:377
 
 
 
