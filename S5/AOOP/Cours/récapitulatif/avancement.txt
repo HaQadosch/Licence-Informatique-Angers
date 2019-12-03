@@ -3,6 +3,6 @@ chapitre 2: done
 chapitre 3: done
 chapitre 4: done
 chapitre 5: done
-chapitre 6: to do
+chapitre 6: done
 chapitre 7: to do
 chapitre 8: to do
