@@ -1,0 +1,6 @@
+class Compte{
+	public:
+
+	private:
+
+};
