@@ -30,7 +30,8 @@ comportement différent sur la ligne ""%ABD %ABC". Prise par la 1ere mais pas la
 \d[A-2]{2}-{3}
 
 conventions dispos sur l'ARSEP
-pour les noms de domaines c'est l'AFNI
+pour les noms de domaines
+ c'est l'AFNI
 conventions mail sur RFC
 
 3) [_-a-z\.0-9]+@[_-a-z\.0-9]+\.[a-z]{2-3}
@@ -49,3 +50,12 @@ en javascript, le ?p<ent>.*? correspond à un pattern
 detecte si un nombre est un nombre premier
 
 le SQL teste si l'expression reguliere est valide. Retourne 1 si c'est le cas, 0 sinon.
+
+Q3)
+/!\ se renseigner sur selenium pour les tests
+q corresponds à la recherche google
+send_keys simule les touches clavier
+
+Q5 -
+2.1 oui,oui,non
+mt_rand() -> MersenTester rand
