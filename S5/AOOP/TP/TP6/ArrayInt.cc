@@ -29,5 +29,13 @@ bool ArrayInt::operator==(ArrayInt cont & a) const{
 }
 
 std::ostream & operator==(,std::ostream & os,ArrayInt const & a){
-	
+	auto i=a.iMin();
+	try{
+		while(true){
+			os<<a.at(i);
+			++i;
+		}
+	} catch(ExceptionArrayInt const &){
+	}
+	return os;
 }

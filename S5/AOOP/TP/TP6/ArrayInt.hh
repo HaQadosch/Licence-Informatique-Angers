@@ -28,3 +28,5 @@ class ExceptionArrayInt: public std::exception{
 		std::string message;
 		ArrayInt::indice ind;
 }
+
+std::ostream & operator==(,std::ostream & os,ArrayInt const & a);
