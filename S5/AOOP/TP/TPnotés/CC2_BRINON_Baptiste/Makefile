@@ -1,6 +1,6 @@
 FAGS = -Wpedantic -Wall -std=c++14
 BOSS = main.cc
-MINIONS = 
+MINIONS = Enseignement.cc Personnes.cc Universite.cc
 WORKER = exe
 
 main: $(BOSS) $(MINIONS)
