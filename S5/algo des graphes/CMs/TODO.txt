@@ -1,0 +1,6 @@
+parcours en largeur
+parcours en profondeur
+bicolorisation
+flotmax
+flotmin
+plus court chemin via dijkstra
