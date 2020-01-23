@@ -38,9 +38,14 @@ let rec sommeNCarre n = if(n=0) then 0 else
 	(* sigma pour somme n carre *)
 	let rec sigma fonc n x=
 		if(n=0) then fonc x
-		else fonc(x) + sigma fonc (n-1) (x-1):;
+		else fonc(x) + sigma fonc (n-1) (x-1);;
 
-	let sommeNCarreSig var = sigma (fun x-> x*x) var var;;
+	let sommeNCarreSig var = sigma (fun x-> x*x) var var
 
 	(* rond *)
-	let
+	let rond f g x= g(f(x));;
+
+(* racine carre via newton *)
+let rec newton x y eps =
+	if (y*.y<= x+.eps && y*.y>= x-.eps) then y
+	else ((y+.x/.y)/.2.) eps;;
