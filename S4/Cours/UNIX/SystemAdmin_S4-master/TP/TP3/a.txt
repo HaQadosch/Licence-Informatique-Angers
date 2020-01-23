@@ -1,5 +1,0 @@
-hello
-this
-is
-line 4
-and this is line 5
