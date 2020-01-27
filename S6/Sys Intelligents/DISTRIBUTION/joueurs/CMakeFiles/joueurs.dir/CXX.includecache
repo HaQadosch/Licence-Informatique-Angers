@@ -1,0 +1,64 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/jeu.h
+math.h
+-
+stdio.h
+-
+stdlib.h
+-
+iostream
+-
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur.cpp
+joueur.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur.h
+mutex
+-
+iostream
+-
+../jeu.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/jeu.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_alphabeta_.cpp
+joueur_alphabeta_.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_alphabeta_.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_alphabeta_.h
+joueur.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_brutal_.cpp
+joueur_brutal_.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_brutal_.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_brutal_.h
+thread
+-
+joueur.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_random.cpp
+joueur_random.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_random.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_random.h
+cstdlib
+-
+iostream
+-
+ctime
+-
+utility
+-
+joueur.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur.h
+

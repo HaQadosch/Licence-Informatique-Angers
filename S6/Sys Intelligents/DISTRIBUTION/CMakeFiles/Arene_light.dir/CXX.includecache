@@ -1,0 +1,92 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/arbitre.cpp
+arbitre.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/arbitre.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/arbitre.h
+memory
+-
+iostream
+-
+chrono
+-
+thread
+-
+mutex
+-
+utility
+-
+functional
+-
+vector
+-
+jeu.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/jeu.h
+joueurs/joueur.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur.h
+joueurs/joueur_random.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_random.h
+joueurs/joueur_brutal_.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_brutal_.h
+joueurs/joueur_alphabeta_.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_alphabeta_.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/jeu.cpp
+jeu.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/jeu.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/jeu.h
+math.h
+-
+stdio.h
+-
+stdlib.h
+-
+iostream
+-
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur.h
+mutex
+-
+iostream
+-
+../jeu.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/jeu.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_alphabeta_.h
+joueur.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_brutal_.h
+thread
+-
+joueur.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur_random.h
+cstdlib
+-
+iostream
+-
+ctime
+-
+utility
+-
+joueur.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/joueurs/joueur.h
+
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/main.cpp
+iostream
+-
+mutex
+-
+arbitre.h
+/home/baptiste/Documents/université/S6/Sys Intelligents/DISTRIBUTION/arbitre.h
+
