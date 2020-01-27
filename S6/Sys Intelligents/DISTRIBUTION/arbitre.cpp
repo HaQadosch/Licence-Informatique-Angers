@@ -88,19 +88,17 @@ int Arbitre::partie()
     {
       bool try_lock = false;
       tour++;
-      
+
       _coups[_numero_partie-1] = -1;
       _coups_mutex[_numero_partie-1].unlock();
-      
-      std::thread thread_joueur(&Joueur::jouer,
-				((tour%2)? (_joueur1) :(_joueur2) ),
-				_jeu,
+
+      std::thread thread_joueur(&Joueur::jouer,((tour%2)? (_joueur1) :(_joueur2) ),_jeu,
 				std::ref(_coups[_numero_partie-1]),
 				std::ref(_coups_mutex[_numero_partie-1]));
-      
+
       std::this_thread::sleep_for (std::chrono::milliseconds(TEMPS_POUR_UN_COUP));
       //        std::this_thread::sleep_for (std::chrono::seconds(TEMPS_POUR_UN_COUP));
-      
+
       if (!_coups_mutex[_numero_partie-1].try_lock()) {
 	std::cerr <<  std::endl << "mutex non rendu " << std::endl;
 	try_lock = true;
@@ -113,30 +111,24 @@ int Arbitre::partie()
       }
 
 thread_joueur.detach();
- 
-      if(try_lock ||
-	 (_coups[_numero_partie-1] == -1) ||
-	 !_jeu.coup_licite(_coups[_numero_partie-1]))   
-	{
 
-	  if(tour%2)
-	    {
-	      std::cout << _joueur2->nom() <<" gagne ! Nombre de tours : " << tour << std::endl;  
-	      return 2; // joueur 2 gagne
-	    }
-	  else
-	    {
-	      std::cout << _joueur1->nom() <<" gagne ! Nombre de tours : " << tour << std::endl;
-	      return 1; // joueur 1 gagne
-	    }
+      if(try_lock || (_coups[_numero_partie-1] == -1) || !_jeu.coup_licite(_coups[_numero_partie-1]))   {
+
+		  if(tour%2){
+		      std::cout << _joueur2->nom() <<" gagne ! Nombre de tours : " << tour << std::endl;
+		      return 2; // joueur 2 gagne
+		   }
+		  else{
+		      std::cout << _joueur1->nom() <<" gagne ! Nombre de tours : " << tour << std::endl;
+		      return 1; // joueur 1 gagne
+		   }
 	}
 
-      _jeu.joue(_coups[_numero_partie-1]);
-      std::cout << ((tour%2) ? _joueur1->nom_abbrege() : _joueur2->nom_abbrege()) << _coups[_numero_partie-1] << " " << _jeu.etat() << " ";
-      
+    _jeu.joue(_coups[_numero_partie-1]);
+    std::cout << ((tour%2) ? _joueur1->nom_abbrege() : _joueur2->nom_abbrege()) << _coups[_numero_partie-1] << " " << _jeu.etat() << " ";
+
     }
 
   std::cout << "\n"<< ((tour%2)? _joueur1->nom() : _joueur2->nom() )  <<" gagne. Nombre de tours : " << tour << std::endl;
   return ((tour%2)? 1 : 2);
 }
-
