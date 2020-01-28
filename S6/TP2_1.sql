@@ -25,7 +25,7 @@ CREATE FUNCTION construP2() returns void AS $$
 	BEGIN
 		IF EXISTS(SELECT * FROM produit) THEN 
 				FOR val IN cursdate LOOP
-					IF val.prix IS NULL THEN val.prix=0 ENDIF;
+					IF val.Prix IS NULL THEN val.Prix=0 ENDIF;
 					INSERT INTO produit2 VALUES(
 						val.NumProd,
 						UPPER(val.Designation),
