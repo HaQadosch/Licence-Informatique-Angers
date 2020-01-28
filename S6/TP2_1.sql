@@ -25,16 +25,16 @@ CREATE FUNCTION construP2() returns void AS $$
 	BEGIN
 		IF EXISTS(SELECT * FROM produit) THEN 
 				FOR val IN cursdate LOOP
-					IF val.Prix IS NULL THEN val.Prix=0 ENDIF;
+					IF val.Prix IS NULL THEN val.Prix=0; END IF;
 					INSERT INTO produit2 VALUES(
 						val.NumProd,
 						UPPER(val.Designation),
 						ROUND(val.Prix*(1/6.55957))
 						);
-				ENDLOOP;
+				END LOOP;
 
 		 ELSE 
 			INSERT INTO produit2 VALUES (0,'Pas de produit',NULL);
-		 ENDIF;
+		 END IF;
 	END;
 $$ LANGUAGE 'plpgsql';
