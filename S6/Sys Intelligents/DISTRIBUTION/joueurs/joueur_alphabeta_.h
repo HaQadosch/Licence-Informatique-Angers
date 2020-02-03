@@ -15,6 +15,6 @@ public:
   //methodes ajoutées
   int max(int a, int b){ return ((a>b)? a:b); }
   int min(int a, int b){ return ((a<b)? a:b); }
-  int eval_E(int etatTemp,int bestE,int bestA,Jeu jeu);
-  int eval_A(int etatTemp,int bestE,int bestA,Jeu jeu);
+  int eval_E(int etatTemp,int &bestE,int &bestA,Jeu jeu);
+  int eval_A(int etatTemp,int &bestE,int &bestA,Jeu jeu);
 };
