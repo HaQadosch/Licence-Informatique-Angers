@@ -1,0 +1,2 @@
+1) coder l'AlphaBeta
+2) ajout des observateurs & calculer le nombre de noeuds & la variation principale

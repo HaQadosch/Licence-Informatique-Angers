@@ -1,5 +1,7 @@
 #include "jeu.h"
 
+//retourne le 1er paramètre
+//aprés avoir rempli tab de index à chiffre avec des valeurs égales à puissance*nb rep
 int __chiffre_succ(int chiffre, int index, int puissance, int * tab) {
   int i;
   for (i=1 ; i <= chiffre ; i++) {
@@ -8,12 +10,13 @@ int __chiffre_succ(int chiffre, int index, int puissance, int * tab) {
   return chiffre;
 }
 
+
 int __succ(int etat, int index, int puissance, int * tab) {
   if (etat < 10) return __chiffre_succ(etat, index, puissance, tab);
-  
+
   int nb = __chiffre_succ(etat%10, index, puissance, tab);
   return nb+__succ((etat - etat%10) / 10, index+nb, puissance*10, tab);
-  
+
 }
 
 Jeu::Jeu(int graine) {
@@ -27,10 +30,11 @@ void Jeu::reset() {
   _nombre = __succ(_graine, -1, 1, _tab);
 }
 
+// indique si le coup est légal
 bool Jeu::coup_licite(int coup) {
   return !((coup < 0) || (coup >= _nombre));
 }
-  
+
 void Jeu::joue(int coup) {
   _etat = _etat - _tab[coup];
   int __etat = _etat;
@@ -53,7 +57,7 @@ int& Jeu::operator[](int i) {
 
 
 void Jeu::print_coups() {
-  
+
   int i;
   if (_nombre == 1) {
     printf("%d coup à partir de l'état %d : ", _nombre, _etat);

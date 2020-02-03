@@ -9,7 +9,7 @@ class Jeu {
  private :
   int _graine;
   int _etat;
-  int _tab[100];
+  int _tab[100]; // états correspondant à chaque coup 
   int _nombre;
 
  public :
