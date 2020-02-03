@@ -19,7 +19,7 @@ int Joueur_AlphaBeta_::eval_E(int etatTemp,int bestE,int bestA,Jeu jeu){
 		return -1;
 	}
 	int v=-1000;
-	for(int etatSuiv=etatTemp,i=0;i<jeu.nb_coups()-1;i++){// A RETRAVAILLER
+	for(int etatSuiv=etatTemp,i=0;i<jeu.nb_coups();i++){// A RETRAVAILLER
 //		std::cout<<"check e2"<<std::endl;
 		etatSuiv=jeu[i]; // ou jeu.etat()
 		jeu.joue(i);
@@ -41,7 +41,7 @@ int Joueur_AlphaBeta_::eval_A(int etatTemp,int bestE,int bestA,Jeu jeu){
 	}
 //	std::cout<<"check a1"<<std::endl;
 	int v=+1000;
-	for(int etatSuiv=etatTemp, i=0;i<jeu.nb_coups()-1;i++){ // A RETRAVAILLER s est l'etat du prochain coup
+	for(int etatSuiv=etatTemp, i=0;i<jeu.nb_coups();i++){ // A RETRAVAILLER s est l'etat du prochain coup
 		//std::cout<<"check a2"<<std::endl;
 		etatSuiv=jeu[i];
 		jeu.joue(i);
