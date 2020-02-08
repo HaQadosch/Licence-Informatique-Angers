@@ -17,3 +17,12 @@ plt.xlabel("qualite")
 plt.ylabel("degre d'alcool")
 plt.title("degre d'alcool en fonction de sa qualite")
 plt.show()
+
+#traitement whitewine
+whiteQual=whiteWine[:,11]
+whiteDeg=whiteWine[:,10]
+plt.scatter(whiteQual,whiteDeg)
+plt.xlabel("qualite")
+plt.ylabel("degre d'alcool")
+plt.title("degre d'alcool en fonction de sa qualite")
+plt.show()
