@@ -68,7 +68,5 @@ print("\n"+str(numExo)+": \n"+str(dfpi["p4"].value_counts(bins=10)))
 
 
 numExo+=1 #exercice 14#
-def moyenne(x):
-	return(x.mean())
-print("\n"+str(numExo)+": \n"+str(dfpi.apply(moyenne,axis=1)))
-print("\n"+str(dfpi.apply(moyenne,axis=0)))
+print("\n"+str(numExo)+": \n"+str(dfpi.apply(lambda x:x.mean(),axis=1)))
+print("\n"+str(dfpi.apply(lambda x:x.mean(),axis=0)))
