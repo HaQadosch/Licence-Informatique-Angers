@@ -26,7 +26,7 @@ int Joueur_AlphaBeta_::eval_E(int etatTemp,int &bestE,int &bestA,Jeu jeu){
 //		std::cout<<"check e2.3"<<std::endl;
 		v=max(v,eval_A(etatSuiv,bestE,bestA,jeu));
 //		std::cout<<"check e3"<<std::endl;
-		if(v>bestA){return v;}
+		if(v>=bestA){return v;}
 //		std::cout<<"check e48"<<std::endl;
 		bestE=max(v,bestA);
 	}
@@ -49,7 +49,7 @@ int Joueur_AlphaBeta_::eval_A(int etatTemp,int &bestE,int &bestA,Jeu jeu){
 //		std::cout<<"check a2.3"<<std::endl;
 		v=min(v,eval_E(etatSuiv,bestE,bestA,jeu));
 //		std::cout<<"check v: "<<v<<std::endl;
-		if(v<=bestA){return v;}
+		if(v<=bestE){return v;}
 //		std::cout<<"check a48"<<std::endl;
 		bestA=min(v,bestE);
 	}
@@ -58,12 +58,19 @@ int Joueur_AlphaBeta_::eval_A(int etatTemp,int &bestE,int &bestA,Jeu jeu){
 
 void Joueur_AlphaBeta_::recherche_coup(Jeu jeu, int &coup)
 {
-	for(int i=0,temp=0;jeu.coup_licite(i) && temp!=1 ;i++){
-		int inf=1000;
-		int neginf=-1000;
-		temp=max(0,eval_E(jeu[i],neginf,inf,jeu));
-		if(temp==1) coup=i;
+	int inf=1000;
+	int neginf=-1000;
+	int v=-1000;
+	for(int i=0;jeu.coup_licite(i);i++){// A RETRAVAILLER
+//		std::cout<<"check e2"<<std::endl;
+		int etatSuiv=jeu[i]; // ou jeu.etat()
+		jeu.joue(i);
+//		std::cout<<"check e2.3"<<std::endl;
+		v=max(v,eval_A(etatSuiv,neginf,inf,jeu));
+//		std::cout<<"check e3"<<std::endl;
+		if(v>=inf){coup=i;return;}
+//		std::cout<<"check e48"<<std::endl;
+		neginf=max(v,inf);
 	}
-//	coup=jeu.nb_coups() == 1 ?  0 : rand() % (jeu.nb_coups()-1);
 	std::cout<<coup<<std::endl;
 }
