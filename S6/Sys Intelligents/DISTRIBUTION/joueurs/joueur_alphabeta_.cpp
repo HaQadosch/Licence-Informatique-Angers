@@ -68,9 +68,9 @@ void Joueur_AlphaBeta_::recherche_coup(Jeu jeu, int &coup)
 //		std::cout<<"check e2.3"<<std::endl;
 		v=max(v,eval_A(etatSuiv,neginf,inf,jeu));
 //		std::cout<<"check e3"<<std::endl;
-		if(v>=inf){coup=i;return;}
+		if(v>=1){coup=i;return;}
 //		std::cout<<"check e48"<<std::endl;
-		neginf=max(v,inf);
 	}
+	coup=0;
 	std::cout<<coup<<std::endl;
 }
