@@ -1,2 +1,4 @@
 1) coder l'AlphaBeta
 2) ajout des observateurs & calculer le nombre de noeuds & la variation principale
+3) ajouter un paramètre a l'arbitre pour stocker les infos ( variation principale etc... ) 
+dans un fichier ou autre
