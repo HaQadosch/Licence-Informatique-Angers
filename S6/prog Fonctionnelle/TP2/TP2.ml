@@ -20,5 +20,6 @@ let rec npremiers n list =match list with
 
 npremiers 3 [2;4;5];;
 
-let met_a_plat list = match list with
+(*let met_a_plat list = match list with
 	(l::r) ->
+*)
