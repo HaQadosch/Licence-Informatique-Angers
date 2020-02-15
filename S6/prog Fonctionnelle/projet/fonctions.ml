@@ -13,9 +13,13 @@ let rec liste_succ sommet ((num,succs)::suite) =
 	if (sommet=0) then failwith "sommet invalide" else
 	if (sommet=1) (* cas ou l'on est sur le bon sommet*)
 		then succs
-	else  if((num,succs)::suite)=[]) (*cas ou le sommet saisi n'est pas dans le graphe*)
+	else  if(((num,succs)::suite)=[]) (*cas ou le sommet saisi n'est pas dans le graphe*)
 		then failwith "sommet non présent dans le graphe"
 	else liste_succ (sommet-1) suite;; (*cas ou l'on cherche le sommet *)
+
+(*indique si num est dans la liste ou non
+est utilisé dans le parcours pour savoir si un sommet n'a pas encore été visité*)
+let nEstPasDans num liste = List.map(fun (x::r) -> x<>num) liste;;
 
 (* parcours en profondeur *)
 let parcours_profondeur graphe =
@@ -24,8 +28,7 @@ let parcours_profondeur graphe =
 	ajout de l'element à la liste des sommets visités  *)
 	let rec parcours_interne g dejaVisite=
  		match g with
-
-			|(actuel::suite) -> match actuel with
+			((num,succs)::suite) -> if(nEstPasDans num dejaVisite) then
 
 	in parcours_interne graphe []
 
