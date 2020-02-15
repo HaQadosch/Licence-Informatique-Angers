@@ -19,7 +19,10 @@ let rec liste_succ sommet ((num,succs)::suite) =
 
 (*indique si num est dans la liste ou non
 est utilisé dans le parcours pour savoir si un sommet n'a pas encore été visité*)
-let nEstPasDans num liste = List.map(fun (x::r) -> x<>num) liste;;
+let nEstPasDans num liste = match liste with
+	(x::r)-> if(x=num) then false else nEstPasDans num r
+	|([]) -> true;;
+
 
 (* parcours en profondeur *)
 let parcours_profondeur graphe =
