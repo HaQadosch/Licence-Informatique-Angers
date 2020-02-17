@@ -1,6 +1,4 @@
 #pragma once
-
-
 #include "joueur.h"
 
 
@@ -13,8 +11,9 @@ public:
   void recherche_coup(Jeu, int & coup) override;
 
   //methodes ajoutées
-  int max(int a, int b){ return ((a>b)? a:b); }
-  int min(int a, int b){ return ((a<b)? a:b); }
-  int eval_E(int etatTemp,int &bestE,int &bestA,Jeu jeu);
-  int eval_A(int etatTemp,int &bestE,int &bestA,Jeu jeu);
+  int maxi(int a, int b){ return ((a>b)? a:b); }
+  int mini(int a, int b){ return ((a<b)? a:b); }
+  int alphaBeta(Jeu jeu, int &alpha, int &beta, bool est_Existentiel);
+ // int eval_E(int etatTemp,int &bestE,int &bestA,Jeu jeu);
+ // int eval_A(int etatTemp,int &bestE,int &bestA,Jeu jeu);
 };
