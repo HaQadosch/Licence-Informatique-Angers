@@ -75,14 +75,15 @@ exo=Iris.sample(int(Iris.shape[0]*0.4))
 
 print("\n"+str(numExo)+": \n"+str(train)+": \n"+str(exo))
 
-numExo+=1#exercice 10#
-wins=0
-loses=0
-for i in range(Iris.shape[0]):
-	if(prediction(neighbors(Iris,Iris.values[i],k),Iris.values[i])==Iris.iloc[i,3]):
-		wins+=1
-	else:
-		loses+=1
-taux_reu=wins/(wins+loses)
 
-print("\n"+str(numExo)+": "+str(taux_reu))
+#numExo+=1#exercice 10#
+#wins=0
+#loses=0
+#for i in range(Iris.shape[0]):
+#	if(prediction(neighbors(Iris,Iris.values[i],k),Iris.values[i])==Iris.iloc[i,3]):
+#		wins+=1
+#	else:
+#		loses+=1
+#taux_reu=wins/(wins+loses)
+#
+#print("\n"+str(numExo)+": "+str(taux_reu))
