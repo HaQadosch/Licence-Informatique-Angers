@@ -55,7 +55,7 @@ print("\n"+str(numExo)+": \n"+str(neighbors(Iris,x_test1,k))+"\n"+str(neighbors(
 
 
 numExo+=1#exercice 8#
-def prediction(voisinage,test_iris):
+def prediction(voisinage):
 	mean=voisinage["species"].mean()
 	if (mean<0.5):
 		return 0
@@ -64,7 +64,7 @@ def prediction(voisinage,test_iris):
 	else:
 		return 2
 
-print("\n"+str(numExo)+": \n"+str(prediction(neighbors(Iris,x_test1,k),x_test1)))
+print("\n"+str(numExo)+": \n"+str(prediction(neighbors(Iris,x_test1,k))))
 
 
 numExo+=1#exercice 9#
@@ -80,7 +80,7 @@ print("\n"+str(numExo)+": \n"+str(train)+": \n"+str(exo))
 #wins=0
 #loses=0
 #for i in range(Iris.shape[0]):
-#	if(prediction(neighbors(Iris,Iris.values[i],k),Iris.values[i])==Iris.iloc[i,3]):
+#	if(prediction(neighbors(Iris,Iris.values[i],k))==Iris.iloc[i,3]):
 #		wins+=1
 #	else:
 #		loses+=1
