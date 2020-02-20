@@ -6,12 +6,12 @@ let graphe1 = [(1,[6;7;8]) ; (2,[1;4]) ; (3, [2]) ; (4, [3;5]) ; (5, [1])
 let rec liste_sommets graphe = match graphe with
 	((num,_)::suite) -> num::(liste_sommets suite)
 	(*cas du dernier sommet*)
-	|([]) -> []
+	|([]) -> [];;
 
 (* retourne le premier sommet du graphe*)
 let rec racine graphe = match graphe with
 	((num,succs)::_) -> (num,succs)
-	|[]->failwith "graphe vide"
+	|[]->failwith "graphe vide";;
 
 (*retourne la liste des successeurs du sommet dans le graphe *)
 let rec liste_succ sommet ((num,succs)::suite) =
@@ -47,9 +47,9 @@ let parcours_profondeur graphe =
 				(*on ajoute le sommet actuel dans la liste de ceux déjà visités*)
 				(*on visite le prochain element de pas encore visité *)
 				then num::parcours_interne ? ? (pasEncoreVisite::(neSontPasDans succs dejaVisite))
-					
 
 
-	in parcours_interne (racine graphe) [] [1]
+
+	in parcours_interne (racine graphe) [] [1];;
 
 (* *)
