@@ -57,16 +57,16 @@ let parcours_profondeur graphe =
 	(* s'il n'y a plus de successeurs à traiter
 	ajout de l'element à la liste des sommets visités  *)
 	let rec parcours_interne sommet dejaVisite pasEncoreVisite=
-		if (pasEncoreVisite=[]) then dejaVisite (* cas où l'on a fini de parcourir le graphe*)
+		if (pasEncoreVisite=[]) then (*[]*)dejaVisite (* cas où l'on a fini de parcourir le graphe*)
  		else
 		match sommet with
 			(num,succs) ->
 				if(List.mem num pasEncoreVisite) (* si le sommet n'est pas encore visité*)
-				(* 3 - alors on ajoute ses successeurs qui ne sont pas dans " déjà visité " dans " pas encore visité "*)
-				(* 3bis - on retire le sommet actuel de ceux pasEncoreVisités*)
-				(* 2 - on ajoute le sommet actuel dans la liste de ceux déjà visités*)
-				(* 1 - on visite le prochain element de pas encore visité *)
-				then (*num::*)parcours_interne List.hd(retirer (succs@pasEncoreVisite dejaVisite)) (dejaVisite::num) (retirer (succs@pasEncoreVisite) (dejaVisite::num))
+				then (*num::*)parcours_interne
+					(List.hd(retirer succs@pasEncoreVisite dejaVisite),successeurs graphe List.hd(retirer (succs@pasEncoreVisite dejaVisite))) (*on visite le prochain element de pas encore visité *)
+					(dejaVisite::num) (*on ajoute le sommet actuel dans la liste de ceux déjà visités*)
+					(retirer (succs@pasEncoreVisite) (dejaVisite::num))	(* alors on ajoute ses successeurs qui ne sont pas dans " déjà visité " dans " pas encore visité "*)
+																		(*on retire le sommet actuel de ceux pasEncoreVisités*)
 			|_ -> failwith "sommet invalide"
 
 
