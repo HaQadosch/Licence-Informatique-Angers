@@ -43,10 +43,10 @@ let inverser graphe = inverserSuccesseurs graphe (sommets graphe);;
 
 
 (*
-let rec DFS graphe discovered racine = match graphe with 
-	(x, (e::r))::g -> if x != racine 
+let rec DFS graphe discovered racine = match graphe with
+	(x, (e::r))::g -> if x != racine
 *)
-	
+
 
 
 (*
@@ -59,18 +59,3 @@ let parcours_profondeur graphe =
 
 
 *)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
